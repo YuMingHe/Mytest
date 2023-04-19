@@ -1,0 +1,2229 @@
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"sd.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.sd_open_one_case,"ax",%progbits
+  20              		.align	2
+  21              		.global	sd_open_one_case
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	sd_open_one_case, %function
+  25              	sd_open_one_case:
+  26              	.LFB64:
+  27              		.file 1 "sd.c"
+   1:sd.c          **** /* ========================================
+   2:sd.c          ****  *
+   3:sd.c          ****  * Copyright YOUR COMPANY, THE YEAR
+   4:sd.c          ****  * All Rights Reserved
+   5:sd.c          ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:sd.c          ****  *
+   7:sd.c          ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:sd.c          ****  * WHICH IS THE PROPERTY OF your company.
+   9:sd.c          ****  *
+  10:sd.c          ****  * ========================================
+  11:sd.c          **** */
+  12:sd.c          **** #include <project.h>
+  13:sd.c          **** #include <sd.h>
+  14:sd.c          **** #include <stdio.h>
+  15:sd.c          **** #include <main.h>
+  16:sd.c          **** //#include <UART.h>
+  17:sd.c          **** 
+  18:sd.c          **** 
+  19:sd.c          **** //此段代码输入的类型只能为int
+  20:sd.c          **** /*
+  21:sd.c          **** void sd_Control_from_PC( uint8 index ){                        //只能打开0-18其中一个箱体
+  22:sd.c          ****     
+  23:sd.c          ****     if( (index==1) || (index==2) ){
+  24:sd.c          ****         if( (Switch_1_2_Control_Read()& CASE_TWO_MASK) != CLOSE_ONE_CASE<<(index-1) ){
+  25:sd.c          ****             Switch_1_2_Control_Write(((CLOSE_ONE_CASE << (index - 1)) & CASE_TWO_MASK) );
+  26:sd.c          ****         }
+  27:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  28:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  29:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  30:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 2
+
+
+  31:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+  32:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+  33:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  34:sd.c          ****     }
+  35:sd.c          ****     else if( (index==11) || (index==12) ){
+  36:sd.c          ****         if( (Switch_11_12_Control_Read()& CASE_TWO_MASK) != CLOSE_ONE_CASE<<(index-11) ){
+  37:sd.c          ****             Switch_11_12_Control_Write(((CLOSE_ONE_CASE << (index - 11)) & CASE_TWO_MASK) );
+  38:sd.c          ****         }
+  39:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  40:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  41:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  42:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+  43:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+  44:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+  45:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  46:sd.c          ****     }
+  47:sd.c          ****     else if( (index==13) || (index==14) ){
+  48:sd.c          ****         if( (Switch_13_14_Control_Read()& CASE_TWO_MASK) != CLOSE_ONE_CASE<<(index-13) ){
+  49:sd.c          ****             Switch_13_14_Control_Write(((CLOSE_ONE_CASE << (index - 13)) & CASE_TWO_MASK) );
+  50:sd.c          ****         }
+  51:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  52:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  53:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  54:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+  55:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+  56:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+  57:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  58:sd.c          ****     }
+  59:sd.c          ****     else if( index==15 ){
+  60:sd.c          ****         
+  61:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  62:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  63:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  64:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  65:sd.c          ****         Switch_15_Control_Write(CLOSE_ONE_CASE);
+  66:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+  67:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+  68:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  69:sd.c          ****     }
+  70:sd.c          ****      else if( index==16 ){
+  71:sd.c          ****         
+  72:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  73:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  74:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  75:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  76:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+  77:sd.c          ****         Switch_16_Control_Write(CLOSE_ONE_CASE);
+  78:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+  79:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  80:sd.c          ****     }
+  81:sd.c          ****     else if( index==17 ){
+  82:sd.c          ****         
+  83:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  84:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  85:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  86:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  87:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 3
+
+
+  88:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+  89:sd.c          ****         Switch_17_Control_Write(CLOSE_ONE_CASE);
+  90:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+  91:sd.c          ****         
+  92:sd.c          ****     }
+  93:sd.c          ****     else if( index==18 ){
+  94:sd.c          ****         
+  95:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+  96:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+  97:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+  98:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+  99:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ 100:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+ 101:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+ 102:sd.c          ****         Switch_18_Control_Write(CLOSE_ONE_CASE);
+ 103:sd.c          ****         
+ 104:sd.c          ****     }
+ 105:sd.c          ****     else if( (index>2) & (index<11)){
+ 106:sd.c          ****         if ( Switch_3_10_Control_Read() != ( CLOSE_ONE_CASE << (index - 3)) )
+ 107:sd.c          ****         {
+ 108:sd.c          ****             Switch_3_10_Control_Write(CLOSE_ONE_CASE << (index - 3));
+ 109:sd.c          ****             Switch_1_2_Control_Write(OPEN_ALL_CASE);
+ 110:sd.c          ****             Switch_11_12_Control_Write(OPEN_ALL_CASE);
+ 111:sd.c          ****             Switch_13_14_Control_Write(OPEN_ALL_CASE);
+ 112:sd.c          ****             Switch_15_Control_Write(OPEN_ALL_CASE);
+ 113:sd.c          ****             Switch_16_Control_Write(OPEN_ALL_CASE);
+ 114:sd.c          ****             Switch_17_Control_Write(OPEN_ALL_CASE);
+ 115:sd.c          ****             Switch_18_Control_Write(OPEN_ALL_CASE);
+ 116:sd.c          ****         }
+ 117:sd.c          ****     }
+ 118:sd.c          ****     else{
+ 119:sd.c          ****         Switch_1_2_Control_Write(OPEN_ALL_CASE);
+ 120:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+ 121:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+ 122:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+ 123:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ 124:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+ 125:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+ 126:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+ 127:sd.c          ****     }
+ 128:sd.c          **** 
+ 129:sd.c          **** }
+ 130:sd.c          **** 
+ 131:sd.c          **** void sd_open_all_case(){                                          //打开所有箱体(输入类型
+ 132:sd.c          ****     Switch_1_2_Control_Write(OPEN_ALL_CASE);
+ 133:sd.c          ****         Switch_3_10_Control_Write(OPEN_ALL_CASE);
+ 134:sd.c          ****         Switch_11_12_Control_Write(OPEN_ALL_CASE);
+ 135:sd.c          ****         Switch_13_14_Control_Write(OPEN_ALL_CASE);
+ 136:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ 137:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+ 138:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+ 139:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+ 140:sd.c          **** }
+ 141:sd.c          **** 
+ 142:sd.c          **** void sd_close_one_case(uint8 index){                              //单独关闭箱体，与其他�
+ 143:sd.c          ****     if((index=='1') || (index=='2')){
+ 144:sd.c          ****         Switch_1_2_Control_Write((Switch_1_2_Control_Read() | (CLOSE_ONE_CASE<<(((int)index-1)))));
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 4
+
+
+ 145:sd.c          ****     }
+ 146:sd.c          ****     else if((index==11) || (index==12)){
+ 147:sd.c          ****             Switch_11_12_Control_Write((Switch_11_12_Control_Read() | (CLOSE_ONE_CASE<<(index-11)))
+ 148:sd.c          ****    }
+ 149:sd.c          ****     else if((index==13) || (index==14)){
+ 150:sd.c          ****         Switch_13_14_Control_Write((Switch_13_14_Control_Read() | (CLOSE_ONE_CASE<<(index-13))));
+ 151:sd.c          ****    }
+ 152:sd.c          ****     else if(index==15){
+ 153:sd.c          ****         Switch_15_Control_Write(CLOSE_ONE_CASE);
+ 154:sd.c          ****    }
+ 155:sd.c          ****     else if(index==16){
+ 156:sd.c          ****         Switch_16_Control_Write(CLOSE_ONE_CASE);
+ 157:sd.c          ****    }
+ 158:sd.c          ****     else if(index==17){
+ 159:sd.c          ****         Switch_17_Control_Write(CLOSE_ONE_CASE);
+ 160:sd.c          ****    }
+ 161:sd.c          ****     else if(index==18){
+ 162:sd.c          ****         Switch_18_Control_Write(CLOSE_ONE_CASE);
+ 163:sd.c          ****    }
+ 164:sd.c          ****    else if( (index>2) & (index<11)){
+ 165:sd.c          **** 
+ 166:sd.c          ****             Switch_3_10_Control_Write((Switch_3_10_Control_Read() | (CLOSE_ONE_CASE<<(index-3))));
+ 167:sd.c          ****    } 
+ 168:sd.c          **** }
+ 169:sd.c          **** 
+ 170:sd.c          **** void sd_open_one_case(uint8 index){                              //单独打开箱体，与其他�
+ 171:sd.c          ****     if((index==1) || (index==2)){
+ 172:sd.c          ****         Switch_1_2_Control_Write(((Switch_1_2_Control_Read()) & (OPEN_ONE_CASE>>(index+5))));
+ 173:sd.c          ****     }
+ 174:sd.c          ****     else if((index==11) || (index==12)){
+ 175:sd.c          ****         Switch_11_12_Control_Write((Switch_11_12_Control_Read() & (OPEN_ONE_CASE>>(index-5))));
+ 176:sd.c          ****    }
+ 177:sd.c          ****     else if((index==13) || (index==14)){
+ 178:sd.c          ****         Switch_13_14_Control_Write((Switch_13_14_Control_Read() & (OPEN_ONE_CASE>>(index-7))));
+ 179:sd.c          ****    }
+ 180:sd.c          ****     else if(index==15){
+ 181:sd.c          ****         Switch_15_Control_Write(OPEN_ALL_CASE);
+ 182:sd.c          ****    }
+ 183:sd.c          ****     else if(index==16){
+ 184:sd.c          ****         Switch_16_Control_Write(OPEN_ALL_CASE);
+ 185:sd.c          ****    }
+ 186:sd.c          ****     else if(index==17){
+ 187:sd.c          ****         Switch_17_Control_Write(OPEN_ALL_CASE);
+ 188:sd.c          ****    }
+ 189:sd.c          ****     else if(index==18){
+ 190:sd.c          ****         Switch_18_Control_Write(OPEN_ALL_CASE);
+ 191:sd.c          ****    }
+ 192:sd.c          ****    else if( (index>2) & (index<11)){
+ 193:sd.c          **** 
+ 194:sd.c          ****             Switch_3_10_Control_Write((Switch_3_10_Control_Read() ^ (OPEN_ONE_CASE>>(index-2))));
+ 195:sd.c          ****    } 
+ 196:sd.c          **** }
+ 197:sd.c          **** */
+ 198:sd.c          **** 
+ 199:sd.c          **** void sd_open_one_case(char Index)                               //单独控制打开1个箱体
+ 200:sd.c          **** {
+  28              		.loc 1 200 0
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 5
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+ 201:sd.c          ****     switch(Index)
+  37              		.loc 1 201 0
+  38 0002 3138     		subs	r0, r0, #49
+  39              	.LVL1:
+  40 0004 1928     		cmp	r0, #25
+  41 0006 55D8     		bhi	.L1
+  42 0008 DFE800F0 		tbb	[pc, r0]
+  43              	.L4:
+  44 000c 0D       		.byte	(.L3-.L4)/2
+  45 000d 11       		.byte	(.L5-.L4)/2
+  46 000e 15       		.byte	(.L6-.L4)/2
+  47 000f 19       		.byte	(.L7-.L4)/2
+  48 0010 1D       		.byte	(.L8-.L4)/2
+  49 0011 21       		.byte	(.L9-.L4)/2
+  50 0012 25       		.byte	(.L10-.L4)/2
+  51 0013 29       		.byte	(.L11-.L4)/2
+  52 0014 2D       		.byte	(.L12-.L4)/2
+  53 0015 54       		.byte	(.L1-.L4)/2
+  54 0016 54       		.byte	(.L1-.L4)/2
+  55 0017 54       		.byte	(.L1-.L4)/2
+  56 0018 54       		.byte	(.L1-.L4)/2
+  57 0019 54       		.byte	(.L1-.L4)/2
+  58 001a 54       		.byte	(.L1-.L4)/2
+  59 001b 54       		.byte	(.L1-.L4)/2
+  60 001c 31       		.byte	(.L13-.L4)/2
+  61 001d 35       		.byte	(.L14-.L4)/2
+  62 001e 39       		.byte	(.L15-.L4)/2
+  63 001f 3D       		.byte	(.L16-.L4)/2
+  64 0020 54       		.byte	(.L1-.L4)/2
+  65 0021 41       		.byte	(.L17-.L4)/2
+  66 0022 45       		.byte	(.L18-.L4)/2
+  67 0023 49       		.byte	(.L19-.L4)/2
+  68 0024 4D       		.byte	(.L20-.L4)/2
+  69 0025 51       		.byte	(.L21-.L4)/2
+  70              		.p2align 1
+  71              	.L3:
+ 202:sd.c          ****     {
+ 203:sd.c          ****         case '1': 
+ 204:sd.c          ****             Switch_1_Control_Write(0);
+  72              		.loc 1 204 0
+  73 0026 0020     		movs	r0, #0
+  74 0028 FFF7FEFF 		bl	Switch_1_Control_Write
+  75              	.LVL2:
+ 205:sd.c          ****             break;
+  76              		.loc 1 205 0
+  77 002c 08BD     		pop	{r3, pc}
+  78              	.L5:
+ 206:sd.c          ****          case '2': 
+ 207:sd.c          ****             Switch_2_Control_Write(0);
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 6
+
+
+  79              		.loc 1 207 0
+  80 002e 0020     		movs	r0, #0
+  81 0030 FFF7FEFF 		bl	Switch_2_Control_Write
+  82              	.LVL3:
+ 208:sd.c          ****             break;
+  83              		.loc 1 208 0
+  84 0034 08BD     		pop	{r3, pc}
+  85              	.L6:
+ 209:sd.c          ****          case '3': 
+ 210:sd.c          ****             Switch_3_Control_Write(0);
+  86              		.loc 1 210 0
+  87 0036 0020     		movs	r0, #0
+  88 0038 FFF7FEFF 		bl	Switch_3_Control_Write
+  89              	.LVL4:
+ 211:sd.c          ****             break;
+  90              		.loc 1 211 0
+  91 003c 08BD     		pop	{r3, pc}
+  92              	.L7:
+ 212:sd.c          ****          case '4': 
+ 213:sd.c          ****             Switch_4_Control_Write(0);
+  93              		.loc 1 213 0
+  94 003e 0020     		movs	r0, #0
+  95 0040 FFF7FEFF 		bl	Switch_4_Control_Write
+  96              	.LVL5:
+ 214:sd.c          ****             break;
+  97              		.loc 1 214 0
+  98 0044 08BD     		pop	{r3, pc}
+  99              	.L8:
+ 215:sd.c          ****          case '5': 
+ 216:sd.c          ****             Switch_5_Control_Write(0);
+ 100              		.loc 1 216 0
+ 101 0046 0020     		movs	r0, #0
+ 102 0048 FFF7FEFF 		bl	Switch_5_Control_Write
+ 103              	.LVL6:
+ 217:sd.c          ****             break;
+ 104              		.loc 1 217 0
+ 105 004c 08BD     		pop	{r3, pc}
+ 106              	.L9:
+ 218:sd.c          ****          case '6': 
+ 219:sd.c          ****             Switch_6_Control_Write(0);
+ 107              		.loc 1 219 0
+ 108 004e 0020     		movs	r0, #0
+ 109 0050 FFF7FEFF 		bl	Switch_6_Control_Write
+ 110              	.LVL7:
+ 220:sd.c          ****             break;
+ 111              		.loc 1 220 0
+ 112 0054 08BD     		pop	{r3, pc}
+ 113              	.L10:
+ 221:sd.c          ****          case '7': 
+ 222:sd.c          ****             Switch_7_Control_Write(0);
+ 114              		.loc 1 222 0
+ 115 0056 0020     		movs	r0, #0
+ 116 0058 FFF7FEFF 		bl	Switch_7_Control_Write
+ 117              	.LVL8:
+ 223:sd.c          ****             break;
+ 118              		.loc 1 223 0
+ 119 005c 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 7
+
+
+ 120              	.L11:
+ 224:sd.c          ****          case '8': 
+ 225:sd.c          ****             Switch_8_Control_Write(0);
+ 121              		.loc 1 225 0
+ 122 005e 0020     		movs	r0, #0
+ 123 0060 FFF7FEFF 		bl	Switch_8_Control_Write
+ 124              	.LVL9:
+ 226:sd.c          ****             break;
+ 125              		.loc 1 226 0
+ 126 0064 08BD     		pop	{r3, pc}
+ 127              	.L12:
+ 227:sd.c          ****          case '9': 
+ 228:sd.c          ****             Switch_9_Control_Write(0);
+ 128              		.loc 1 228 0
+ 129 0066 0020     		movs	r0, #0
+ 130 0068 FFF7FEFF 		bl	Switch_9_Control_Write
+ 131              	.LVL10:
+ 229:sd.c          ****             break;
+ 132              		.loc 1 229 0
+ 133 006c 08BD     		pop	{r3, pc}
+ 134              	.L13:
+ 230:sd.c          ****          case 'A': 
+ 231:sd.c          ****             Switch_10_Control_Write(0);
+ 135              		.loc 1 231 0
+ 136 006e 0020     		movs	r0, #0
+ 137 0070 FFF7FEFF 		bl	Switch_10_Control_Write
+ 138              	.LVL11:
+ 232:sd.c          ****             break;
+ 139              		.loc 1 232 0
+ 140 0074 08BD     		pop	{r3, pc}
+ 141              	.L14:
+ 233:sd.c          ****          case 'B': 
+ 234:sd.c          ****             Switch_11_Control_Write(0);
+ 142              		.loc 1 234 0
+ 143 0076 0020     		movs	r0, #0
+ 144 0078 FFF7FEFF 		bl	Switch_11_Control_Write
+ 145              	.LVL12:
+ 235:sd.c          ****             break;
+ 146              		.loc 1 235 0
+ 147 007c 08BD     		pop	{r3, pc}
+ 148              	.L15:
+ 236:sd.c          ****          case 'C': 
+ 237:sd.c          ****             Switch_12_Control_Write(0);
+ 149              		.loc 1 237 0
+ 150 007e 0020     		movs	r0, #0
+ 151 0080 FFF7FEFF 		bl	Switch_12_Control_Write
+ 152              	.LVL13:
+ 238:sd.c          ****             break;
+ 153              		.loc 1 238 0
+ 154 0084 08BD     		pop	{r3, pc}
+ 155              	.L16:
+ 239:sd.c          ****          case 'D': 
+ 240:sd.c          ****             Switch_13_Control_Write(0);
+ 156              		.loc 1 240 0
+ 157 0086 0020     		movs	r0, #0
+ 158 0088 FFF7FEFF 		bl	Switch_13_Control_Write
+ 159              	.LVL14:
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 8
+
+
+ 241:sd.c          ****             break;
+ 160              		.loc 1 241 0
+ 161 008c 08BD     		pop	{r3, pc}
+ 162              	.L17:
+ 242:sd.c          ****          case 'F': 
+ 243:sd.c          ****             Switch_14_Control_Write(0);
+ 163              		.loc 1 243 0
+ 164 008e 0020     		movs	r0, #0
+ 165 0090 FFF7FEFF 		bl	Switch_14_Control_Write
+ 166              	.LVL15:
+ 244:sd.c          ****             break;
+ 167              		.loc 1 244 0
+ 168 0094 08BD     		pop	{r3, pc}
+ 169              	.L18:
+ 245:sd.c          ****          case 'G': 
+ 246:sd.c          ****             Switch_15_Control_Write(0);
+ 170              		.loc 1 246 0
+ 171 0096 0020     		movs	r0, #0
+ 172 0098 FFF7FEFF 		bl	Switch_15_Control_Write
+ 173              	.LVL16:
+ 247:sd.c          ****             break; 
+ 174              		.loc 1 247 0
+ 175 009c 08BD     		pop	{r3, pc}
+ 176              	.L19:
+ 248:sd.c          ****          case 'H': 
+ 249:sd.c          ****             Switch_16_Control_Write(0);
+ 177              		.loc 1 249 0
+ 178 009e 0020     		movs	r0, #0
+ 179 00a0 FFF7FEFF 		bl	Switch_16_Control_Write
+ 180              	.LVL17:
+ 250:sd.c          ****             break;
+ 181              		.loc 1 250 0
+ 182 00a4 08BD     		pop	{r3, pc}
+ 183              	.L20:
+ 251:sd.c          ****          case 'I': 
+ 252:sd.c          ****             Switch_17_Control_Write(0);
+ 184              		.loc 1 252 0
+ 185 00a6 0020     		movs	r0, #0
+ 186 00a8 FFF7FEFF 		bl	Switch_17_Control_Write
+ 187              	.LVL18:
+ 253:sd.c          ****             break;
+ 188              		.loc 1 253 0
+ 189 00ac 08BD     		pop	{r3, pc}
+ 190              	.L21:
+ 254:sd.c          ****          case 'J': 
+ 255:sd.c          ****             Switch_18_Control_Write(0);
+ 191              		.loc 1 255 0
+ 192 00ae 0020     		movs	r0, #0
+ 193 00b0 FFF7FEFF 		bl	Switch_18_Control_Write
+ 194              	.LVL19:
+ 195              	.L1:
+ 196 00b4 08BD     		pop	{r3, pc}
+ 197              		.cfi_endproc
+ 198              	.LFE64:
+ 199              		.size	sd_open_one_case, .-sd_open_one_case
+ 200 00b6 00BF     		.section	.text.sd_close_one_case,"ax",%progbits
+ 201              		.align	2
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 9
+
+
+ 202              		.global	sd_close_one_case
+ 203              		.thumb
+ 204              		.thumb_func
+ 205              		.type	sd_close_one_case, %function
+ 206              	sd_close_one_case:
+ 207              	.LFB65:
+ 256:sd.c          ****             break;
+ 257:sd.c          ****     }
+ 258:sd.c          **** }
+ 259:sd.c          **** 
+ 260:sd.c          **** void sd_close_one_case(char Index)                                //单独控制关闭1个箱体
+ 261:sd.c          **** {
+ 208              		.loc 1 261 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              	.LVL20:
+ 213 0000 08B5     		push	{r3, lr}
+ 214              		.cfi_def_cfa_offset 8
+ 215              		.cfi_offset 3, -8
+ 216              		.cfi_offset 14, -4
+ 262:sd.c          ****     switch(Index)
+ 217              		.loc 1 262 0
+ 218 0002 3138     		subs	r0, r0, #49
+ 219              	.LVL21:
+ 220 0004 1828     		cmp	r0, #24
+ 221 0006 55D8     		bhi	.L23
+ 222 0008 DFE800F0 		tbb	[pc, r0]
+ 223              	.L26:
+ 224 000c 0D       		.byte	(.L25-.L26)/2
+ 225 000d 11       		.byte	(.L27-.L26)/2
+ 226 000e 15       		.byte	(.L28-.L26)/2
+ 227 000f 19       		.byte	(.L29-.L26)/2
+ 228 0010 1D       		.byte	(.L30-.L26)/2
+ 229 0011 21       		.byte	(.L31-.L26)/2
+ 230 0012 25       		.byte	(.L32-.L26)/2
+ 231 0013 29       		.byte	(.L33-.L26)/2
+ 232 0014 2D       		.byte	(.L34-.L26)/2
+ 233 0015 54       		.byte	(.L23-.L26)/2
+ 234 0016 54       		.byte	(.L23-.L26)/2
+ 235 0017 54       		.byte	(.L23-.L26)/2
+ 236 0018 54       		.byte	(.L23-.L26)/2
+ 237 0019 54       		.byte	(.L23-.L26)/2
+ 238 001a 54       		.byte	(.L23-.L26)/2
+ 239 001b 54       		.byte	(.L23-.L26)/2
+ 240 001c 31       		.byte	(.L35-.L26)/2
+ 241 001d 35       		.byte	(.L36-.L26)/2
+ 242 001e 39       		.byte	(.L37-.L26)/2
+ 243 001f 3D       		.byte	(.L38-.L26)/2
+ 244 0020 41       		.byte	(.L39-.L26)/2
+ 245 0021 45       		.byte	(.L40-.L26)/2
+ 246 0022 49       		.byte	(.L41-.L26)/2
+ 247 0023 4D       		.byte	(.L42-.L26)/2
+ 248 0024 51       		.byte	(.L43-.L26)/2
+ 249 0025 00       		.p2align 1
+ 250              	.L25:
+ 263:sd.c          ****     {
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 10
+
+
+ 264:sd.c          ****          case '1': 
+ 265:sd.c          ****             Switch_1_Control_Write(1);
+ 251              		.loc 1 265 0
+ 252 0026 0120     		movs	r0, #1
+ 253 0028 FFF7FEFF 		bl	Switch_1_Control_Write
+ 254              	.LVL22:
+ 266:sd.c          ****             break;
+ 255              		.loc 1 266 0
+ 256 002c 08BD     		pop	{r3, pc}
+ 257              	.L27:
+ 267:sd.c          ****          case '2': 
+ 268:sd.c          ****             Switch_2_Control_Write(1);
+ 258              		.loc 1 268 0
+ 259 002e 0120     		movs	r0, #1
+ 260 0030 FFF7FEFF 		bl	Switch_2_Control_Write
+ 261              	.LVL23:
+ 269:sd.c          ****             break;
+ 262              		.loc 1 269 0
+ 263 0034 08BD     		pop	{r3, pc}
+ 264              	.L28:
+ 270:sd.c          ****          case '3': 
+ 271:sd.c          ****             Switch_3_Control_Write(1);
+ 265              		.loc 1 271 0
+ 266 0036 0120     		movs	r0, #1
+ 267 0038 FFF7FEFF 		bl	Switch_3_Control_Write
+ 268              	.LVL24:
+ 272:sd.c          ****             break;
+ 269              		.loc 1 272 0
+ 270 003c 08BD     		pop	{r3, pc}
+ 271              	.L29:
+ 273:sd.c          ****          case '4': 
+ 274:sd.c          ****             Switch_4_Control_Write(1);
+ 272              		.loc 1 274 0
+ 273 003e 0120     		movs	r0, #1
+ 274 0040 FFF7FEFF 		bl	Switch_4_Control_Write
+ 275              	.LVL25:
+ 275:sd.c          ****             break;
+ 276              		.loc 1 275 0
+ 277 0044 08BD     		pop	{r3, pc}
+ 278              	.L30:
+ 276:sd.c          ****          case '5': 
+ 277:sd.c          ****             Switch_5_Control_Write(1);
+ 279              		.loc 1 277 0
+ 280 0046 0120     		movs	r0, #1
+ 281 0048 FFF7FEFF 		bl	Switch_5_Control_Write
+ 282              	.LVL26:
+ 278:sd.c          ****             break;
+ 283              		.loc 1 278 0
+ 284 004c 08BD     		pop	{r3, pc}
+ 285              	.L31:
+ 279:sd.c          ****          case '6': 
+ 280:sd.c          ****             Switch_6_Control_Write(1);
+ 286              		.loc 1 280 0
+ 287 004e 0120     		movs	r0, #1
+ 288 0050 FFF7FEFF 		bl	Switch_6_Control_Write
+ 289              	.LVL27:
+ 281:sd.c          ****             break;
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 11
+
+
+ 290              		.loc 1 281 0
+ 291 0054 08BD     		pop	{r3, pc}
+ 292              	.L32:
+ 282:sd.c          ****          case '7': 
+ 283:sd.c          ****             Switch_7_Control_Write(1);
+ 293              		.loc 1 283 0
+ 294 0056 0120     		movs	r0, #1
+ 295 0058 FFF7FEFF 		bl	Switch_7_Control_Write
+ 296              	.LVL28:
+ 284:sd.c          ****             break;
+ 297              		.loc 1 284 0
+ 298 005c 08BD     		pop	{r3, pc}
+ 299              	.L33:
+ 285:sd.c          ****          case '8': 
+ 286:sd.c          ****             Switch_8_Control_Write(1);
+ 300              		.loc 1 286 0
+ 301 005e 0120     		movs	r0, #1
+ 302 0060 FFF7FEFF 		bl	Switch_8_Control_Write
+ 303              	.LVL29:
+ 287:sd.c          ****             break;
+ 304              		.loc 1 287 0
+ 305 0064 08BD     		pop	{r3, pc}
+ 306              	.L34:
+ 288:sd.c          ****          case '9': 
+ 289:sd.c          ****             Switch_9_Control_Write(1);
+ 307              		.loc 1 289 0
+ 308 0066 0120     		movs	r0, #1
+ 309 0068 FFF7FEFF 		bl	Switch_9_Control_Write
+ 310              	.LVL30:
+ 290:sd.c          ****             break;
+ 311              		.loc 1 290 0
+ 312 006c 08BD     		pop	{r3, pc}
+ 313              	.L35:
+ 291:sd.c          ****          case 'A': 
+ 292:sd.c          ****             Switch_10_Control_Write(1);
+ 314              		.loc 1 292 0
+ 315 006e 0120     		movs	r0, #1
+ 316 0070 FFF7FEFF 		bl	Switch_10_Control_Write
+ 317              	.LVL31:
+ 293:sd.c          ****             break;
+ 318              		.loc 1 293 0
+ 319 0074 08BD     		pop	{r3, pc}
+ 320              	.L36:
+ 294:sd.c          ****          case 'B': 
+ 295:sd.c          ****             Switch_11_Control_Write(1);
+ 321              		.loc 1 295 0
+ 322 0076 0120     		movs	r0, #1
+ 323 0078 FFF7FEFF 		bl	Switch_11_Control_Write
+ 324              	.LVL32:
+ 296:sd.c          ****             break;
+ 325              		.loc 1 296 0
+ 326 007c 08BD     		pop	{r3, pc}
+ 327              	.L37:
+ 297:sd.c          ****          case 'C': 
+ 298:sd.c          ****             Switch_12_Control_Write(1);
+ 328              		.loc 1 298 0
+ 329 007e 0120     		movs	r0, #1
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 12
+
+
+ 330 0080 FFF7FEFF 		bl	Switch_12_Control_Write
+ 331              	.LVL33:
+ 299:sd.c          ****             break;
+ 332              		.loc 1 299 0
+ 333 0084 08BD     		pop	{r3, pc}
+ 334              	.L38:
+ 300:sd.c          ****          case 'D': 
+ 301:sd.c          ****             Switch_13_Control_Write(1);
+ 335              		.loc 1 301 0
+ 336 0086 0120     		movs	r0, #1
+ 337 0088 FFF7FEFF 		bl	Switch_13_Control_Write
+ 338              	.LVL34:
+ 302:sd.c          ****             break;
+ 339              		.loc 1 302 0
+ 340 008c 08BD     		pop	{r3, pc}
+ 341              	.L39:
+ 303:sd.c          ****          case 'E': 
+ 304:sd.c          ****             Switch_14_Control_Write(1);
+ 342              		.loc 1 304 0
+ 343 008e 0120     		movs	r0, #1
+ 344 0090 FFF7FEFF 		bl	Switch_14_Control_Write
+ 345              	.LVL35:
+ 305:sd.c          ****             break;
+ 346              		.loc 1 305 0
+ 347 0094 08BD     		pop	{r3, pc}
+ 348              	.L40:
+ 306:sd.c          ****          case 'F': 
+ 307:sd.c          ****             Switch_15_Control_Write(1);
+ 349              		.loc 1 307 0
+ 350 0096 0120     		movs	r0, #1
+ 351 0098 FFF7FEFF 		bl	Switch_15_Control_Write
+ 352              	.LVL36:
+ 308:sd.c          ****             break; 
+ 353              		.loc 1 308 0
+ 354 009c 08BD     		pop	{r3, pc}
+ 355              	.L41:
+ 309:sd.c          ****          case 'G': 
+ 310:sd.c          ****             Switch_16_Control_Write(1);
+ 356              		.loc 1 310 0
+ 357 009e 0120     		movs	r0, #1
+ 358 00a0 FFF7FEFF 		bl	Switch_16_Control_Write
+ 359              	.LVL37:
+ 311:sd.c          ****             break;
+ 360              		.loc 1 311 0
+ 361 00a4 08BD     		pop	{r3, pc}
+ 362              	.L42:
+ 312:sd.c          ****          case 'H': 
+ 313:sd.c          ****             Switch_17_Control_Write(1);
+ 363              		.loc 1 313 0
+ 364 00a6 0120     		movs	r0, #1
+ 365 00a8 FFF7FEFF 		bl	Switch_17_Control_Write
+ 366              	.LVL38:
+ 314:sd.c          ****             break;
+ 367              		.loc 1 314 0
+ 368 00ac 08BD     		pop	{r3, pc}
+ 369              	.L43:
+ 315:sd.c          ****          case 'I': 
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 13
+
+
+ 316:sd.c          ****             Switch_18_Control_Write(1);
+ 370              		.loc 1 316 0
+ 371 00ae 0120     		movs	r0, #1
+ 372 00b0 FFF7FEFF 		bl	Switch_18_Control_Write
+ 373              	.LVL39:
+ 374              	.L23:
+ 375 00b4 08BD     		pop	{r3, pc}
+ 376              		.cfi_endproc
+ 377              	.LFE65:
+ 378              		.size	sd_close_one_case, .-sd_close_one_case
+ 379 00b6 00BF     		.section	.text.sd_open_all_case,"ax",%progbits
+ 380              		.align	2
+ 381              		.global	sd_open_all_case
+ 382              		.thumb
+ 383              		.thumb_func
+ 384              		.type	sd_open_all_case, %function
+ 385              	sd_open_all_case:
+ 386              	.LFB66:
+ 317:sd.c          ****             break;
+ 318:sd.c          ****     }
+ 319:sd.c          **** }
+ 320:sd.c          **** void sd_open_all_case()//打开所有箱体
+ 321:sd.c          **** {
+ 387              		.loc 1 321 0
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391 0000 08B5     		push	{r3, lr}
+ 392              		.cfi_def_cfa_offset 8
+ 393              		.cfi_offset 3, -8
+ 394              		.cfi_offset 14, -4
+ 322:sd.c          ****     Switch_1_Control_Write(0);
+ 395              		.loc 1 322 0
+ 396 0002 0020     		movs	r0, #0
+ 397 0004 FFF7FEFF 		bl	Switch_1_Control_Write
+ 398              	.LVL40:
+ 323:sd.c          ****     Switch_2_Control_Write(0);
+ 399              		.loc 1 323 0
+ 400 0008 0020     		movs	r0, #0
+ 401 000a FFF7FEFF 		bl	Switch_2_Control_Write
+ 402              	.LVL41:
+ 324:sd.c          ****     Switch_3_Control_Write(0);
+ 403              		.loc 1 324 0
+ 404 000e 0020     		movs	r0, #0
+ 405 0010 FFF7FEFF 		bl	Switch_3_Control_Write
+ 406              	.LVL42:
+ 325:sd.c          ****     Switch_4_Control_Write(0);
+ 407              		.loc 1 325 0
+ 408 0014 0020     		movs	r0, #0
+ 409 0016 FFF7FEFF 		bl	Switch_4_Control_Write
+ 410              	.LVL43:
+ 326:sd.c          ****     Switch_5_Control_Write(0);
+ 411              		.loc 1 326 0
+ 412 001a 0020     		movs	r0, #0
+ 413 001c FFF7FEFF 		bl	Switch_5_Control_Write
+ 414              	.LVL44:
+ 327:sd.c          ****     Switch_6_Control_Write(0);  
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 14
+
+
+ 415              		.loc 1 327 0
+ 416 0020 0020     		movs	r0, #0
+ 417 0022 FFF7FEFF 		bl	Switch_6_Control_Write
+ 418              	.LVL45:
+ 328:sd.c          ****     Switch_7_Control_Write(0);
+ 419              		.loc 1 328 0
+ 420 0026 0020     		movs	r0, #0
+ 421 0028 FFF7FEFF 		bl	Switch_7_Control_Write
+ 422              	.LVL46:
+ 329:sd.c          ****     Switch_8_Control_Write(0);
+ 423              		.loc 1 329 0
+ 424 002c 0020     		movs	r0, #0
+ 425 002e FFF7FEFF 		bl	Switch_8_Control_Write
+ 426              	.LVL47:
+ 330:sd.c          ****     Switch_9_Control_Write(0);
+ 427              		.loc 1 330 0
+ 428 0032 0020     		movs	r0, #0
+ 429 0034 FFF7FEFF 		bl	Switch_9_Control_Write
+ 430              	.LVL48:
+ 331:sd.c          ****     Switch_10_Control_Write(0);
+ 431              		.loc 1 331 0
+ 432 0038 0020     		movs	r0, #0
+ 433 003a FFF7FEFF 		bl	Switch_10_Control_Write
+ 434              	.LVL49:
+ 332:sd.c          ****     Switch_11_Control_Write(0);
+ 435              		.loc 1 332 0
+ 436 003e 0020     		movs	r0, #0
+ 437 0040 FFF7FEFF 		bl	Switch_11_Control_Write
+ 438              	.LVL50:
+ 333:sd.c          ****     Switch_12_Control_Write(0);
+ 439              		.loc 1 333 0
+ 440 0044 0020     		movs	r0, #0
+ 441 0046 FFF7FEFF 		bl	Switch_12_Control_Write
+ 442              	.LVL51:
+ 334:sd.c          ****     Switch_13_Control_Write(0);
+ 443              		.loc 1 334 0
+ 444 004a 0020     		movs	r0, #0
+ 445 004c FFF7FEFF 		bl	Switch_13_Control_Write
+ 446              	.LVL52:
+ 335:sd.c          ****     Switch_14_Control_Write(0);
+ 447              		.loc 1 335 0
+ 448 0050 0020     		movs	r0, #0
+ 449 0052 FFF7FEFF 		bl	Switch_14_Control_Write
+ 450              	.LVL53:
+ 336:sd.c          ****     Switch_15_Control_Write(0);
+ 451              		.loc 1 336 0
+ 452 0056 0020     		movs	r0, #0
+ 453 0058 FFF7FEFF 		bl	Switch_15_Control_Write
+ 454              	.LVL54:
+ 337:sd.c          ****     Switch_16_Control_Write(0);
+ 455              		.loc 1 337 0
+ 456 005c 0020     		movs	r0, #0
+ 457 005e FFF7FEFF 		bl	Switch_16_Control_Write
+ 458              	.LVL55:
+ 338:sd.c          ****     Switch_17_Control_Write(0);
+ 459              		.loc 1 338 0
+ 460 0062 0020     		movs	r0, #0
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 15
+
+
+ 461 0064 FFF7FEFF 		bl	Switch_17_Control_Write
+ 462              	.LVL56:
+ 339:sd.c          ****     Switch_18_Control_Write(0);
+ 463              		.loc 1 339 0
+ 464 0068 0020     		movs	r0, #0
+ 465 006a FFF7FEFF 		bl	Switch_18_Control_Write
+ 466              	.LVL57:
+ 467 006e 08BD     		pop	{r3, pc}
+ 468              		.cfi_endproc
+ 469              	.LFE66:
+ 470              		.size	sd_open_all_case, .-sd_open_all_case
+ 471              		.text
+ 472              	.Letext0:
+ 473              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 474              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 475              		.file 4 "Generated_Source\\PSoC5/Switch_1_Control.h"
+ 476              		.file 5 "Generated_Source\\PSoC5/Switch_2_Control.h"
+ 477              		.file 6 "Generated_Source\\PSoC5/Switch_3_Control.h"
+ 478              		.file 7 "Generated_Source\\PSoC5/Switch_4_Control.h"
+ 479              		.file 8 "Generated_Source\\PSoC5/Switch_5_Control.h"
+ 480              		.file 9 "Generated_Source\\PSoC5/Switch_6_Control.h"
+ 481              		.file 10 "Generated_Source\\PSoC5/Switch_7_Control.h"
+ 482              		.file 11 "Generated_Source\\PSoC5/Switch_8_Control.h"
+ 483              		.file 12 "Generated_Source\\PSoC5/Switch_9_Control.h"
+ 484              		.file 13 "Generated_Source\\PSoC5/Switch_10_Control.h"
+ 485              		.file 14 "Generated_Source\\PSoC5/Switch_11_Control.h"
+ 486              		.file 15 "Generated_Source\\PSoC5/Switch_12_Control.h"
+ 487              		.file 16 "Generated_Source\\PSoC5/Switch_13_Control.h"
+ 488              		.file 17 "Generated_Source\\PSoC5/Switch_14_Control.h"
+ 489              		.file 18 "Generated_Source\\PSoC5/Switch_15_Control.h"
+ 490              		.file 19 "Generated_Source\\PSoC5/Switch_16_Control.h"
+ 491              		.file 20 "Generated_Source\\PSoC5/Switch_17_Control.h"
+ 492              		.file 21 "Generated_Source\\PSoC5/Switch_18_Control.h"
+ 493              		.file 22 "Generated_Source\\PSoC5/core_cm3.h"
+ 494              		.section	.debug_info,"",%progbits
+ 495              	.Ldebug_info0:
+ 496 0000 D1050000 		.4byte	0x5d1
+ 497 0004 0400     		.2byte	0x4
+ 498 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 499 000a 04       		.byte	0x4
+ 500 000b 01       		.uleb128 0x1
+ 501 000c 49010000 		.4byte	.LASF37
+ 502 0010 0C       		.byte	0xc
+ 503 0011 80020000 		.4byte	.LASF38
+ 504 0015 3E030000 		.4byte	.LASF39
+ 505 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 506 001d 00000000 		.4byte	0
+ 507 0021 00000000 		.4byte	.Ldebug_line0
+ 508 0025 02       		.uleb128 0x2
+ 509 0026 01       		.byte	0x1
+ 510 0027 06       		.byte	0x6
+ 511 0028 2C030000 		.4byte	.LASF0
+ 512 002c 02       		.uleb128 0x2
+ 513 002d 01       		.byte	0x1
+ 514 002e 08       		.byte	0x8
+ 515 002f 3B010000 		.4byte	.LASF1
+ 516 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 16
+
+
+ 517 0034 02       		.byte	0x2
+ 518 0035 05       		.byte	0x5
+ 519 0036 0D030000 		.4byte	.LASF2
+ 520 003a 02       		.uleb128 0x2
+ 521 003b 02       		.byte	0x2
+ 522 003c 07       		.byte	0x7
+ 523 003d 34000000 		.4byte	.LASF3
+ 524 0041 03       		.uleb128 0x3
+ 525 0042 12000000 		.4byte	.LASF9
+ 526 0046 02       		.byte	0x2
+ 527 0047 3F       		.byte	0x3f
+ 528 0048 4C000000 		.4byte	0x4c
+ 529 004c 02       		.uleb128 0x2
+ 530 004d 04       		.byte	0x4
+ 531 004e 05       		.byte	0x5
+ 532 004f 17030000 		.4byte	.LASF4
+ 533 0053 02       		.uleb128 0x2
+ 534 0054 04       		.byte	0x4
+ 535 0055 07       		.byte	0x7
+ 536 0056 6E020000 		.4byte	.LASF5
+ 537 005a 02       		.uleb128 0x2
+ 538 005b 08       		.byte	0x8
+ 539 005c 05       		.byte	0x5
+ 540 005d FA020000 		.4byte	.LASF6
+ 541 0061 02       		.uleb128 0x2
+ 542 0062 08       		.byte	0x8
+ 543 0063 07       		.byte	0x7
+ 544 0064 BB020000 		.4byte	.LASF7
+ 545 0068 04       		.uleb128 0x4
+ 546 0069 04       		.byte	0x4
+ 547 006a 05       		.byte	0x5
+ 548 006b 696E7400 		.ascii	"int\000"
+ 549 006f 02       		.uleb128 0x2
+ 550 0070 04       		.byte	0x4
+ 551 0071 07       		.byte	0x7
+ 552 0072 AE020000 		.4byte	.LASF8
+ 553 0076 03       		.uleb128 0x3
+ 554 0077 E9020000 		.4byte	.LASF10
+ 555 007b 03       		.byte	0x3
+ 556 007c 2C       		.byte	0x2c
+ 557 007d 41000000 		.4byte	0x41
+ 558 0081 02       		.uleb128 0x2
+ 559 0082 04       		.byte	0x4
+ 560 0083 04       		.byte	0x4
+ 561 0084 07010000 		.4byte	.LASF11
+ 562 0088 02       		.uleb128 0x2
+ 563 0089 08       		.byte	0x8
+ 564 008a 04       		.byte	0x4
+ 565 008b 77000000 		.4byte	.LASF12
+ 566 008f 02       		.uleb128 0x2
+ 567 0090 01       		.byte	0x1
+ 568 0091 08       		.byte	0x8
+ 569 0092 08030000 		.4byte	.LASF13
+ 570 0096 02       		.uleb128 0x2
+ 571 0097 08       		.byte	0x8
+ 572 0098 04       		.byte	0x4
+ 573 0099 20030000 		.4byte	.LASF14
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 17
+
+
+ 574 009d 02       		.uleb128 0x2
+ 575 009e 04       		.byte	0x4
+ 576 009f 07       		.byte	0x7
+ 577 00a0 F1020000 		.4byte	.LASF15
+ 578 00a4 05       		.uleb128 0x5
+ 579 00a5 9D020000 		.4byte	.LASF16
+ 580 00a9 01       		.byte	0x1
+ 581 00aa C7       		.byte	0xc7
+ 582 00ab 00000000 		.4byte	.LFB64
+ 583 00af B6000000 		.4byte	.LFE64-.LFB64
+ 584 00b3 01       		.uleb128 0x1
+ 585 00b4 9C       		.byte	0x9c
+ 586 00b5 1B020000 		.4byte	0x21b
+ 587 00b9 06       		.uleb128 0x6
+ 588 00ba 38030000 		.4byte	.LASF18
+ 589 00be 01       		.byte	0x1
+ 590 00bf C7       		.byte	0xc7
+ 591 00c0 8F000000 		.4byte	0x8f
+ 592 00c4 00000000 		.4byte	.LLST0
+ 593 00c8 07       		.uleb128 0x7
+ 594 00c9 2C000000 		.4byte	.LVL2
+ 595 00cd 0E050000 		.4byte	0x50e
+ 596 00d1 DB000000 		.4byte	0xdb
+ 597 00d5 08       		.uleb128 0x8
+ 598 00d6 01       		.uleb128 0x1
+ 599 00d7 50       		.byte	0x50
+ 600 00d8 01       		.uleb128 0x1
+ 601 00d9 30       		.byte	0x30
+ 602 00da 00       		.byte	0
+ 603 00db 07       		.uleb128 0x7
+ 604 00dc 34000000 		.4byte	.LVL3
+ 605 00e0 19050000 		.4byte	0x519
+ 606 00e4 EE000000 		.4byte	0xee
+ 607 00e8 08       		.uleb128 0x8
+ 608 00e9 01       		.uleb128 0x1
+ 609 00ea 50       		.byte	0x50
+ 610 00eb 01       		.uleb128 0x1
+ 611 00ec 30       		.byte	0x30
+ 612 00ed 00       		.byte	0
+ 613 00ee 07       		.uleb128 0x7
+ 614 00ef 3C000000 		.4byte	.LVL4
+ 615 00f3 24050000 		.4byte	0x524
+ 616 00f7 01010000 		.4byte	0x101
+ 617 00fb 08       		.uleb128 0x8
+ 618 00fc 01       		.uleb128 0x1
+ 619 00fd 50       		.byte	0x50
+ 620 00fe 01       		.uleb128 0x1
+ 621 00ff 30       		.byte	0x30
+ 622 0100 00       		.byte	0
+ 623 0101 07       		.uleb128 0x7
+ 624 0102 44000000 		.4byte	.LVL5
+ 625 0106 2F050000 		.4byte	0x52f
+ 626 010a 14010000 		.4byte	0x114
+ 627 010e 08       		.uleb128 0x8
+ 628 010f 01       		.uleb128 0x1
+ 629 0110 50       		.byte	0x50
+ 630 0111 01       		.uleb128 0x1
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 18
+
+
+ 631 0112 30       		.byte	0x30
+ 632 0113 00       		.byte	0
+ 633 0114 07       		.uleb128 0x7
+ 634 0115 4C000000 		.4byte	.LVL6
+ 635 0119 3A050000 		.4byte	0x53a
+ 636 011d 27010000 		.4byte	0x127
+ 637 0121 08       		.uleb128 0x8
+ 638 0122 01       		.uleb128 0x1
+ 639 0123 50       		.byte	0x50
+ 640 0124 01       		.uleb128 0x1
+ 641 0125 30       		.byte	0x30
+ 642 0126 00       		.byte	0
+ 643 0127 07       		.uleb128 0x7
+ 644 0128 54000000 		.4byte	.LVL7
+ 645 012c 45050000 		.4byte	0x545
+ 646 0130 3A010000 		.4byte	0x13a
+ 647 0134 08       		.uleb128 0x8
+ 648 0135 01       		.uleb128 0x1
+ 649 0136 50       		.byte	0x50
+ 650 0137 01       		.uleb128 0x1
+ 651 0138 30       		.byte	0x30
+ 652 0139 00       		.byte	0
+ 653 013a 07       		.uleb128 0x7
+ 654 013b 5C000000 		.4byte	.LVL8
+ 655 013f 50050000 		.4byte	0x550
+ 656 0143 4D010000 		.4byte	0x14d
+ 657 0147 08       		.uleb128 0x8
+ 658 0148 01       		.uleb128 0x1
+ 659 0149 50       		.byte	0x50
+ 660 014a 01       		.uleb128 0x1
+ 661 014b 30       		.byte	0x30
+ 662 014c 00       		.byte	0
+ 663 014d 07       		.uleb128 0x7
+ 664 014e 64000000 		.4byte	.LVL9
+ 665 0152 5B050000 		.4byte	0x55b
+ 666 0156 60010000 		.4byte	0x160
+ 667 015a 08       		.uleb128 0x8
+ 668 015b 01       		.uleb128 0x1
+ 669 015c 50       		.byte	0x50
+ 670 015d 01       		.uleb128 0x1
+ 671 015e 30       		.byte	0x30
+ 672 015f 00       		.byte	0
+ 673 0160 07       		.uleb128 0x7
+ 674 0161 6C000000 		.4byte	.LVL10
+ 675 0165 66050000 		.4byte	0x566
+ 676 0169 73010000 		.4byte	0x173
+ 677 016d 08       		.uleb128 0x8
+ 678 016e 01       		.uleb128 0x1
+ 679 016f 50       		.byte	0x50
+ 680 0170 01       		.uleb128 0x1
+ 681 0171 30       		.byte	0x30
+ 682 0172 00       		.byte	0
+ 683 0173 07       		.uleb128 0x7
+ 684 0174 74000000 		.4byte	.LVL11
+ 685 0178 71050000 		.4byte	0x571
+ 686 017c 86010000 		.4byte	0x186
+ 687 0180 08       		.uleb128 0x8
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 19
+
+
+ 688 0181 01       		.uleb128 0x1
+ 689 0182 50       		.byte	0x50
+ 690 0183 01       		.uleb128 0x1
+ 691 0184 30       		.byte	0x30
+ 692 0185 00       		.byte	0
+ 693 0186 07       		.uleb128 0x7
+ 694 0187 7C000000 		.4byte	.LVL12
+ 695 018b 7C050000 		.4byte	0x57c
+ 696 018f 99010000 		.4byte	0x199
+ 697 0193 08       		.uleb128 0x8
+ 698 0194 01       		.uleb128 0x1
+ 699 0195 50       		.byte	0x50
+ 700 0196 01       		.uleb128 0x1
+ 701 0197 30       		.byte	0x30
+ 702 0198 00       		.byte	0
+ 703 0199 07       		.uleb128 0x7
+ 704 019a 84000000 		.4byte	.LVL13
+ 705 019e 87050000 		.4byte	0x587
+ 706 01a2 AC010000 		.4byte	0x1ac
+ 707 01a6 08       		.uleb128 0x8
+ 708 01a7 01       		.uleb128 0x1
+ 709 01a8 50       		.byte	0x50
+ 710 01a9 01       		.uleb128 0x1
+ 711 01aa 30       		.byte	0x30
+ 712 01ab 00       		.byte	0
+ 713 01ac 07       		.uleb128 0x7
+ 714 01ad 8C000000 		.4byte	.LVL14
+ 715 01b1 92050000 		.4byte	0x592
+ 716 01b5 BF010000 		.4byte	0x1bf
+ 717 01b9 08       		.uleb128 0x8
+ 718 01ba 01       		.uleb128 0x1
+ 719 01bb 50       		.byte	0x50
+ 720 01bc 01       		.uleb128 0x1
+ 721 01bd 30       		.byte	0x30
+ 722 01be 00       		.byte	0
+ 723 01bf 07       		.uleb128 0x7
+ 724 01c0 94000000 		.4byte	.LVL15
+ 725 01c4 9D050000 		.4byte	0x59d
+ 726 01c8 D2010000 		.4byte	0x1d2
+ 727 01cc 08       		.uleb128 0x8
+ 728 01cd 01       		.uleb128 0x1
+ 729 01ce 50       		.byte	0x50
+ 730 01cf 01       		.uleb128 0x1
+ 731 01d0 30       		.byte	0x30
+ 732 01d1 00       		.byte	0
+ 733 01d2 07       		.uleb128 0x7
+ 734 01d3 9C000000 		.4byte	.LVL16
+ 735 01d7 A8050000 		.4byte	0x5a8
+ 736 01db E5010000 		.4byte	0x1e5
+ 737 01df 08       		.uleb128 0x8
+ 738 01e0 01       		.uleb128 0x1
+ 739 01e1 50       		.byte	0x50
+ 740 01e2 01       		.uleb128 0x1
+ 741 01e3 30       		.byte	0x30
+ 742 01e4 00       		.byte	0
+ 743 01e5 07       		.uleb128 0x7
+ 744 01e6 A4000000 		.4byte	.LVL17
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 20
+
+
+ 745 01ea B3050000 		.4byte	0x5b3
+ 746 01ee F8010000 		.4byte	0x1f8
+ 747 01f2 08       		.uleb128 0x8
+ 748 01f3 01       		.uleb128 0x1
+ 749 01f4 50       		.byte	0x50
+ 750 01f5 01       		.uleb128 0x1
+ 751 01f6 30       		.byte	0x30
+ 752 01f7 00       		.byte	0
+ 753 01f8 07       		.uleb128 0x7
+ 754 01f9 AC000000 		.4byte	.LVL18
+ 755 01fd BE050000 		.4byte	0x5be
+ 756 0201 0B020000 		.4byte	0x20b
+ 757 0205 08       		.uleb128 0x8
+ 758 0206 01       		.uleb128 0x1
+ 759 0207 50       		.byte	0x50
+ 760 0208 01       		.uleb128 0x1
+ 761 0209 30       		.byte	0x30
+ 762 020a 00       		.byte	0
+ 763 020b 09       		.uleb128 0x9
+ 764 020c B4000000 		.4byte	.LVL19
+ 765 0210 C9050000 		.4byte	0x5c9
+ 766 0214 08       		.uleb128 0x8
+ 767 0215 01       		.uleb128 0x1
+ 768 0216 50       		.byte	0x50
+ 769 0217 01       		.uleb128 0x1
+ 770 0218 30       		.byte	0x30
+ 771 0219 00       		.byte	0
+ 772 021a 00       		.byte	0
+ 773 021b 0A       		.uleb128 0xa
+ 774 021c 00000000 		.4byte	.LASF17
+ 775 0220 01       		.byte	0x1
+ 776 0221 0401     		.2byte	0x104
+ 777 0223 00000000 		.4byte	.LFB65
+ 778 0227 B6000000 		.4byte	.LFE65-.LFB65
+ 779 022b 01       		.uleb128 0x1
+ 780 022c 9C       		.byte	0x9c
+ 781 022d 94030000 		.4byte	0x394
+ 782 0231 0B       		.uleb128 0xb
+ 783 0232 38030000 		.4byte	.LASF18
+ 784 0236 01       		.byte	0x1
+ 785 0237 0401     		.2byte	0x104
+ 786 0239 8F000000 		.4byte	0x8f
+ 787 023d 21000000 		.4byte	.LLST1
+ 788 0241 07       		.uleb128 0x7
+ 789 0242 2C000000 		.4byte	.LVL22
+ 790 0246 0E050000 		.4byte	0x50e
+ 791 024a 54020000 		.4byte	0x254
+ 792 024e 08       		.uleb128 0x8
+ 793 024f 01       		.uleb128 0x1
+ 794 0250 50       		.byte	0x50
+ 795 0251 01       		.uleb128 0x1
+ 796 0252 31       		.byte	0x31
+ 797 0253 00       		.byte	0
+ 798 0254 07       		.uleb128 0x7
+ 799 0255 34000000 		.4byte	.LVL23
+ 800 0259 19050000 		.4byte	0x519
+ 801 025d 67020000 		.4byte	0x267
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 21
+
+
+ 802 0261 08       		.uleb128 0x8
+ 803 0262 01       		.uleb128 0x1
+ 804 0263 50       		.byte	0x50
+ 805 0264 01       		.uleb128 0x1
+ 806 0265 31       		.byte	0x31
+ 807 0266 00       		.byte	0
+ 808 0267 07       		.uleb128 0x7
+ 809 0268 3C000000 		.4byte	.LVL24
+ 810 026c 24050000 		.4byte	0x524
+ 811 0270 7A020000 		.4byte	0x27a
+ 812 0274 08       		.uleb128 0x8
+ 813 0275 01       		.uleb128 0x1
+ 814 0276 50       		.byte	0x50
+ 815 0277 01       		.uleb128 0x1
+ 816 0278 31       		.byte	0x31
+ 817 0279 00       		.byte	0
+ 818 027a 07       		.uleb128 0x7
+ 819 027b 44000000 		.4byte	.LVL25
+ 820 027f 2F050000 		.4byte	0x52f
+ 821 0283 8D020000 		.4byte	0x28d
+ 822 0287 08       		.uleb128 0x8
+ 823 0288 01       		.uleb128 0x1
+ 824 0289 50       		.byte	0x50
+ 825 028a 01       		.uleb128 0x1
+ 826 028b 31       		.byte	0x31
+ 827 028c 00       		.byte	0
+ 828 028d 07       		.uleb128 0x7
+ 829 028e 4C000000 		.4byte	.LVL26
+ 830 0292 3A050000 		.4byte	0x53a
+ 831 0296 A0020000 		.4byte	0x2a0
+ 832 029a 08       		.uleb128 0x8
+ 833 029b 01       		.uleb128 0x1
+ 834 029c 50       		.byte	0x50
+ 835 029d 01       		.uleb128 0x1
+ 836 029e 31       		.byte	0x31
+ 837 029f 00       		.byte	0
+ 838 02a0 07       		.uleb128 0x7
+ 839 02a1 54000000 		.4byte	.LVL27
+ 840 02a5 45050000 		.4byte	0x545
+ 841 02a9 B3020000 		.4byte	0x2b3
+ 842 02ad 08       		.uleb128 0x8
+ 843 02ae 01       		.uleb128 0x1
+ 844 02af 50       		.byte	0x50
+ 845 02b0 01       		.uleb128 0x1
+ 846 02b1 31       		.byte	0x31
+ 847 02b2 00       		.byte	0
+ 848 02b3 07       		.uleb128 0x7
+ 849 02b4 5C000000 		.4byte	.LVL28
+ 850 02b8 50050000 		.4byte	0x550
+ 851 02bc C6020000 		.4byte	0x2c6
+ 852 02c0 08       		.uleb128 0x8
+ 853 02c1 01       		.uleb128 0x1
+ 854 02c2 50       		.byte	0x50
+ 855 02c3 01       		.uleb128 0x1
+ 856 02c4 31       		.byte	0x31
+ 857 02c5 00       		.byte	0
+ 858 02c6 07       		.uleb128 0x7
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 22
+
+
+ 859 02c7 64000000 		.4byte	.LVL29
+ 860 02cb 5B050000 		.4byte	0x55b
+ 861 02cf D9020000 		.4byte	0x2d9
+ 862 02d3 08       		.uleb128 0x8
+ 863 02d4 01       		.uleb128 0x1
+ 864 02d5 50       		.byte	0x50
+ 865 02d6 01       		.uleb128 0x1
+ 866 02d7 31       		.byte	0x31
+ 867 02d8 00       		.byte	0
+ 868 02d9 07       		.uleb128 0x7
+ 869 02da 6C000000 		.4byte	.LVL30
+ 870 02de 66050000 		.4byte	0x566
+ 871 02e2 EC020000 		.4byte	0x2ec
+ 872 02e6 08       		.uleb128 0x8
+ 873 02e7 01       		.uleb128 0x1
+ 874 02e8 50       		.byte	0x50
+ 875 02e9 01       		.uleb128 0x1
+ 876 02ea 31       		.byte	0x31
+ 877 02eb 00       		.byte	0
+ 878 02ec 07       		.uleb128 0x7
+ 879 02ed 74000000 		.4byte	.LVL31
+ 880 02f1 71050000 		.4byte	0x571
+ 881 02f5 FF020000 		.4byte	0x2ff
+ 882 02f9 08       		.uleb128 0x8
+ 883 02fa 01       		.uleb128 0x1
+ 884 02fb 50       		.byte	0x50
+ 885 02fc 01       		.uleb128 0x1
+ 886 02fd 31       		.byte	0x31
+ 887 02fe 00       		.byte	0
+ 888 02ff 07       		.uleb128 0x7
+ 889 0300 7C000000 		.4byte	.LVL32
+ 890 0304 7C050000 		.4byte	0x57c
+ 891 0308 12030000 		.4byte	0x312
+ 892 030c 08       		.uleb128 0x8
+ 893 030d 01       		.uleb128 0x1
+ 894 030e 50       		.byte	0x50
+ 895 030f 01       		.uleb128 0x1
+ 896 0310 31       		.byte	0x31
+ 897 0311 00       		.byte	0
+ 898 0312 07       		.uleb128 0x7
+ 899 0313 84000000 		.4byte	.LVL33
+ 900 0317 87050000 		.4byte	0x587
+ 901 031b 25030000 		.4byte	0x325
+ 902 031f 08       		.uleb128 0x8
+ 903 0320 01       		.uleb128 0x1
+ 904 0321 50       		.byte	0x50
+ 905 0322 01       		.uleb128 0x1
+ 906 0323 31       		.byte	0x31
+ 907 0324 00       		.byte	0
+ 908 0325 07       		.uleb128 0x7
+ 909 0326 8C000000 		.4byte	.LVL34
+ 910 032a 92050000 		.4byte	0x592
+ 911 032e 38030000 		.4byte	0x338
+ 912 0332 08       		.uleb128 0x8
+ 913 0333 01       		.uleb128 0x1
+ 914 0334 50       		.byte	0x50
+ 915 0335 01       		.uleb128 0x1
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 23
+
+
+ 916 0336 31       		.byte	0x31
+ 917 0337 00       		.byte	0
+ 918 0338 07       		.uleb128 0x7
+ 919 0339 94000000 		.4byte	.LVL35
+ 920 033d 9D050000 		.4byte	0x59d
+ 921 0341 4B030000 		.4byte	0x34b
+ 922 0345 08       		.uleb128 0x8
+ 923 0346 01       		.uleb128 0x1
+ 924 0347 50       		.byte	0x50
+ 925 0348 01       		.uleb128 0x1
+ 926 0349 31       		.byte	0x31
+ 927 034a 00       		.byte	0
+ 928 034b 07       		.uleb128 0x7
+ 929 034c 9C000000 		.4byte	.LVL36
+ 930 0350 A8050000 		.4byte	0x5a8
+ 931 0354 5E030000 		.4byte	0x35e
+ 932 0358 08       		.uleb128 0x8
+ 933 0359 01       		.uleb128 0x1
+ 934 035a 50       		.byte	0x50
+ 935 035b 01       		.uleb128 0x1
+ 936 035c 31       		.byte	0x31
+ 937 035d 00       		.byte	0
+ 938 035e 07       		.uleb128 0x7
+ 939 035f A4000000 		.4byte	.LVL37
+ 940 0363 B3050000 		.4byte	0x5b3
+ 941 0367 71030000 		.4byte	0x371
+ 942 036b 08       		.uleb128 0x8
+ 943 036c 01       		.uleb128 0x1
+ 944 036d 50       		.byte	0x50
+ 945 036e 01       		.uleb128 0x1
+ 946 036f 31       		.byte	0x31
+ 947 0370 00       		.byte	0
+ 948 0371 07       		.uleb128 0x7
+ 949 0372 AC000000 		.4byte	.LVL38
+ 950 0376 BE050000 		.4byte	0x5be
+ 951 037a 84030000 		.4byte	0x384
+ 952 037e 08       		.uleb128 0x8
+ 953 037f 01       		.uleb128 0x1
+ 954 0380 50       		.byte	0x50
+ 955 0381 01       		.uleb128 0x1
+ 956 0382 31       		.byte	0x31
+ 957 0383 00       		.byte	0
+ 958 0384 09       		.uleb128 0x9
+ 959 0385 B4000000 		.4byte	.LVL39
+ 960 0389 C9050000 		.4byte	0x5c9
+ 961 038d 08       		.uleb128 0x8
+ 962 038e 01       		.uleb128 0x1
+ 963 038f 50       		.byte	0x50
+ 964 0390 01       		.uleb128 0x1
+ 965 0391 31       		.byte	0x31
+ 966 0392 00       		.byte	0
+ 967 0393 00       		.byte	0
+ 968 0394 0C       		.uleb128 0xc
+ 969 0395 AE000000 		.4byte	.LASF40
+ 970 0399 01       		.byte	0x1
+ 971 039a 4001     		.2byte	0x140
+ 972 039c 00000000 		.4byte	.LFB66
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 24
+
+
+ 973 03a0 70000000 		.4byte	.LFE66-.LFB66
+ 974 03a4 01       		.uleb128 0x1
+ 975 03a5 9C       		.byte	0x9c
+ 976 03a6 FD040000 		.4byte	0x4fd
+ 977 03aa 07       		.uleb128 0x7
+ 978 03ab 08000000 		.4byte	.LVL40
+ 979 03af 0E050000 		.4byte	0x50e
+ 980 03b3 BD030000 		.4byte	0x3bd
+ 981 03b7 08       		.uleb128 0x8
+ 982 03b8 01       		.uleb128 0x1
+ 983 03b9 50       		.byte	0x50
+ 984 03ba 01       		.uleb128 0x1
+ 985 03bb 30       		.byte	0x30
+ 986 03bc 00       		.byte	0
+ 987 03bd 07       		.uleb128 0x7
+ 988 03be 0E000000 		.4byte	.LVL41
+ 989 03c2 19050000 		.4byte	0x519
+ 990 03c6 D0030000 		.4byte	0x3d0
+ 991 03ca 08       		.uleb128 0x8
+ 992 03cb 01       		.uleb128 0x1
+ 993 03cc 50       		.byte	0x50
+ 994 03cd 01       		.uleb128 0x1
+ 995 03ce 30       		.byte	0x30
+ 996 03cf 00       		.byte	0
+ 997 03d0 07       		.uleb128 0x7
+ 998 03d1 14000000 		.4byte	.LVL42
+ 999 03d5 24050000 		.4byte	0x524
+ 1000 03d9 E3030000 		.4byte	0x3e3
+ 1001 03dd 08       		.uleb128 0x8
+ 1002 03de 01       		.uleb128 0x1
+ 1003 03df 50       		.byte	0x50
+ 1004 03e0 01       		.uleb128 0x1
+ 1005 03e1 30       		.byte	0x30
+ 1006 03e2 00       		.byte	0
+ 1007 03e3 07       		.uleb128 0x7
+ 1008 03e4 1A000000 		.4byte	.LVL43
+ 1009 03e8 2F050000 		.4byte	0x52f
+ 1010 03ec F6030000 		.4byte	0x3f6
+ 1011 03f0 08       		.uleb128 0x8
+ 1012 03f1 01       		.uleb128 0x1
+ 1013 03f2 50       		.byte	0x50
+ 1014 03f3 01       		.uleb128 0x1
+ 1015 03f4 30       		.byte	0x30
+ 1016 03f5 00       		.byte	0
+ 1017 03f6 07       		.uleb128 0x7
+ 1018 03f7 20000000 		.4byte	.LVL44
+ 1019 03fb 3A050000 		.4byte	0x53a
+ 1020 03ff 09040000 		.4byte	0x409
+ 1021 0403 08       		.uleb128 0x8
+ 1022 0404 01       		.uleb128 0x1
+ 1023 0405 50       		.byte	0x50
+ 1024 0406 01       		.uleb128 0x1
+ 1025 0407 30       		.byte	0x30
+ 1026 0408 00       		.byte	0
+ 1027 0409 07       		.uleb128 0x7
+ 1028 040a 26000000 		.4byte	.LVL45
+ 1029 040e 45050000 		.4byte	0x545
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 25
+
+
+ 1030 0412 1C040000 		.4byte	0x41c
+ 1031 0416 08       		.uleb128 0x8
+ 1032 0417 01       		.uleb128 0x1
+ 1033 0418 50       		.byte	0x50
+ 1034 0419 01       		.uleb128 0x1
+ 1035 041a 30       		.byte	0x30
+ 1036 041b 00       		.byte	0
+ 1037 041c 07       		.uleb128 0x7
+ 1038 041d 2C000000 		.4byte	.LVL46
+ 1039 0421 50050000 		.4byte	0x550
+ 1040 0425 2F040000 		.4byte	0x42f
+ 1041 0429 08       		.uleb128 0x8
+ 1042 042a 01       		.uleb128 0x1
+ 1043 042b 50       		.byte	0x50
+ 1044 042c 01       		.uleb128 0x1
+ 1045 042d 30       		.byte	0x30
+ 1046 042e 00       		.byte	0
+ 1047 042f 07       		.uleb128 0x7
+ 1048 0430 32000000 		.4byte	.LVL47
+ 1049 0434 5B050000 		.4byte	0x55b
+ 1050 0438 42040000 		.4byte	0x442
+ 1051 043c 08       		.uleb128 0x8
+ 1052 043d 01       		.uleb128 0x1
+ 1053 043e 50       		.byte	0x50
+ 1054 043f 01       		.uleb128 0x1
+ 1055 0440 30       		.byte	0x30
+ 1056 0441 00       		.byte	0
+ 1057 0442 07       		.uleb128 0x7
+ 1058 0443 38000000 		.4byte	.LVL48
+ 1059 0447 66050000 		.4byte	0x566
+ 1060 044b 55040000 		.4byte	0x455
+ 1061 044f 08       		.uleb128 0x8
+ 1062 0450 01       		.uleb128 0x1
+ 1063 0451 50       		.byte	0x50
+ 1064 0452 01       		.uleb128 0x1
+ 1065 0453 30       		.byte	0x30
+ 1066 0454 00       		.byte	0
+ 1067 0455 07       		.uleb128 0x7
+ 1068 0456 3E000000 		.4byte	.LVL49
+ 1069 045a 71050000 		.4byte	0x571
+ 1070 045e 68040000 		.4byte	0x468
+ 1071 0462 08       		.uleb128 0x8
+ 1072 0463 01       		.uleb128 0x1
+ 1073 0464 50       		.byte	0x50
+ 1074 0465 01       		.uleb128 0x1
+ 1075 0466 30       		.byte	0x30
+ 1076 0467 00       		.byte	0
+ 1077 0468 07       		.uleb128 0x7
+ 1078 0469 44000000 		.4byte	.LVL50
+ 1079 046d 7C050000 		.4byte	0x57c
+ 1080 0471 7B040000 		.4byte	0x47b
+ 1081 0475 08       		.uleb128 0x8
+ 1082 0476 01       		.uleb128 0x1
+ 1083 0477 50       		.byte	0x50
+ 1084 0478 01       		.uleb128 0x1
+ 1085 0479 30       		.byte	0x30
+ 1086 047a 00       		.byte	0
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 26
+
+
+ 1087 047b 07       		.uleb128 0x7
+ 1088 047c 4A000000 		.4byte	.LVL51
+ 1089 0480 87050000 		.4byte	0x587
+ 1090 0484 8E040000 		.4byte	0x48e
+ 1091 0488 08       		.uleb128 0x8
+ 1092 0489 01       		.uleb128 0x1
+ 1093 048a 50       		.byte	0x50
+ 1094 048b 01       		.uleb128 0x1
+ 1095 048c 30       		.byte	0x30
+ 1096 048d 00       		.byte	0
+ 1097 048e 07       		.uleb128 0x7
+ 1098 048f 50000000 		.4byte	.LVL52
+ 1099 0493 92050000 		.4byte	0x592
+ 1100 0497 A1040000 		.4byte	0x4a1
+ 1101 049b 08       		.uleb128 0x8
+ 1102 049c 01       		.uleb128 0x1
+ 1103 049d 50       		.byte	0x50
+ 1104 049e 01       		.uleb128 0x1
+ 1105 049f 30       		.byte	0x30
+ 1106 04a0 00       		.byte	0
+ 1107 04a1 07       		.uleb128 0x7
+ 1108 04a2 56000000 		.4byte	.LVL53
+ 1109 04a6 9D050000 		.4byte	0x59d
+ 1110 04aa B4040000 		.4byte	0x4b4
+ 1111 04ae 08       		.uleb128 0x8
+ 1112 04af 01       		.uleb128 0x1
+ 1113 04b0 50       		.byte	0x50
+ 1114 04b1 01       		.uleb128 0x1
+ 1115 04b2 30       		.byte	0x30
+ 1116 04b3 00       		.byte	0
+ 1117 04b4 07       		.uleb128 0x7
+ 1118 04b5 5C000000 		.4byte	.LVL54
+ 1119 04b9 A8050000 		.4byte	0x5a8
+ 1120 04bd C7040000 		.4byte	0x4c7
+ 1121 04c1 08       		.uleb128 0x8
+ 1122 04c2 01       		.uleb128 0x1
+ 1123 04c3 50       		.byte	0x50
+ 1124 04c4 01       		.uleb128 0x1
+ 1125 04c5 30       		.byte	0x30
+ 1126 04c6 00       		.byte	0
+ 1127 04c7 07       		.uleb128 0x7
+ 1128 04c8 62000000 		.4byte	.LVL55
+ 1129 04cc B3050000 		.4byte	0x5b3
+ 1130 04d0 DA040000 		.4byte	0x4da
+ 1131 04d4 08       		.uleb128 0x8
+ 1132 04d5 01       		.uleb128 0x1
+ 1133 04d6 50       		.byte	0x50
+ 1134 04d7 01       		.uleb128 0x1
+ 1135 04d8 30       		.byte	0x30
+ 1136 04d9 00       		.byte	0
+ 1137 04da 07       		.uleb128 0x7
+ 1138 04db 68000000 		.4byte	.LVL56
+ 1139 04df BE050000 		.4byte	0x5be
+ 1140 04e3 ED040000 		.4byte	0x4ed
+ 1141 04e7 08       		.uleb128 0x8
+ 1142 04e8 01       		.uleb128 0x1
+ 1143 04e9 50       		.byte	0x50
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 27
+
+
+ 1144 04ea 01       		.uleb128 0x1
+ 1145 04eb 30       		.byte	0x30
+ 1146 04ec 00       		.byte	0
+ 1147 04ed 09       		.uleb128 0x9
+ 1148 04ee 6E000000 		.4byte	.LVL57
+ 1149 04f2 C9050000 		.4byte	0x5c9
+ 1150 04f6 08       		.uleb128 0x8
+ 1151 04f7 01       		.uleb128 0x1
+ 1152 04f8 50       		.byte	0x50
+ 1153 04f9 01       		.uleb128 0x1
+ 1154 04fa 30       		.byte	0x30
+ 1155 04fb 00       		.byte	0
+ 1156 04fc 00       		.byte	0
+ 1157 04fd 0D       		.uleb128 0xd
+ 1158 04fe 61020000 		.4byte	.LASF41
+ 1159 0502 16       		.byte	0x16
+ 1160 0503 1207     		.2byte	0x712
+ 1161 0505 09050000 		.4byte	0x509
+ 1162 0509 0E       		.uleb128 0xe
+ 1163 050a 76000000 		.4byte	0x76
+ 1164 050e 0F       		.uleb128 0xf
+ 1165 050f 33020000 		.4byte	.LASF19
+ 1166 0513 33020000 		.4byte	.LASF19
+ 1167 0517 04       		.byte	0x4
+ 1168 0518 26       		.byte	0x26
+ 1169 0519 0F       		.uleb128 0xf
+ 1170 051a D2020000 		.4byte	.LASF20
+ 1171 051e D2020000 		.4byte	.LASF20
+ 1172 0522 05       		.byte	0x5
+ 1173 0523 26       		.byte	0x26
+ 1174 0524 0F       		.uleb128 0xf
+ 1175 0525 1C020000 		.4byte	.LASF21
+ 1176 0529 1C020000 		.4byte	.LASF21
+ 1177 052d 06       		.byte	0x6
+ 1178 052e 26       		.byte	0x26
+ 1179 052f 0F       		.uleb128 0xf
+ 1180 0530 24010000 		.4byte	.LASF22
+ 1181 0534 24010000 		.4byte	.LASF22
+ 1182 0538 07       		.byte	0x7
+ 1183 0539 26       		.byte	0x26
+ 1184 053a 0F       		.uleb128 0xf
+ 1185 053b 05020000 		.4byte	.LASF23
+ 1186 053f 05020000 		.4byte	.LASF23
+ 1187 0543 08       		.byte	0x8
+ 1188 0544 26       		.byte	0x26
+ 1189 0545 0F       		.uleb128 0xf
+ 1190 0546 0D010000 		.4byte	.LASF24
+ 1191 054a 0D010000 		.4byte	.LASF24
+ 1192 054e 09       		.byte	0x9
+ 1193 054f 26       		.byte	0x26
+ 1194 0550 0F       		.uleb128 0xf
+ 1195 0551 EE010000 		.4byte	.LASF25
+ 1196 0555 EE010000 		.4byte	.LASF25
+ 1197 0559 0A       		.byte	0xa
+ 1198 055a 26       		.byte	0x26
+ 1199 055b 0F       		.uleb128 0xf
+ 1200 055c 4A020000 		.4byte	.LASF26
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 28
+
+
+ 1201 0560 4A020000 		.4byte	.LASF26
+ 1202 0564 0B       		.byte	0xb
+ 1203 0565 26       		.byte	0x26
+ 1204 0566 0F       		.uleb128 0xf
+ 1205 0567 D7010000 		.4byte	.LASF27
+ 1206 056b D7010000 		.4byte	.LASF27
+ 1207 056f 0C       		.byte	0xc
+ 1208 0570 26       		.byte	0x26
+ 1209 0571 0F       		.uleb128 0xf
+ 1210 0572 7E000000 		.4byte	.LASF28
+ 1211 0576 7E000000 		.4byte	.LASF28
+ 1212 057a 0D       		.byte	0xd
+ 1213 057b 26       		.byte	0x26
+ 1214 057c 0F       		.uleb128 0xf
+ 1215 057d 1C000000 		.4byte	.LASF29
+ 1216 0581 1C000000 		.4byte	.LASF29
+ 1217 0585 0E       		.byte	0xe
+ 1218 0586 26       		.byte	0x26
+ 1219 0587 0F       		.uleb128 0xf
+ 1220 0588 5F000000 		.4byte	.LASF30
+ 1221 058c 5F000000 		.4byte	.LASF30
+ 1222 0590 0F       		.byte	0xf
+ 1223 0591 26       		.byte	0x26
+ 1224 0592 0F       		.uleb128 0xf
+ 1225 0593 D7000000 		.4byte	.LASF31
+ 1226 0597 D7000000 		.4byte	.LASF31
+ 1227 059b 10       		.byte	0x10
+ 1228 059c 26       		.byte	0x26
+ 1229 059d 0F       		.uleb128 0xf
+ 1230 059e 47000000 		.4byte	.LASF32
+ 1231 05a2 47000000 		.4byte	.LASF32
+ 1232 05a6 11       		.byte	0x11
+ 1233 05a7 26       		.byte	0x26
+ 1234 05a8 0F       		.uleb128 0xf
+ 1235 05a9 BF000000 		.4byte	.LASF33
+ 1236 05ad BF000000 		.4byte	.LASF33
+ 1237 05b1 12       		.byte	0x12
+ 1238 05b2 26       		.byte	0x26
+ 1239 05b3 0F       		.uleb128 0xf
+ 1240 05b4 85020000 		.4byte	.LASF34
+ 1241 05b8 85020000 		.4byte	.LASF34
+ 1242 05bc 13       		.byte	0x13
+ 1243 05bd 26       		.byte	0x26
+ 1244 05be 0F       		.uleb128 0xf
+ 1245 05bf 96000000 		.4byte	.LASF35
+ 1246 05c3 96000000 		.4byte	.LASF35
+ 1247 05c7 14       		.byte	0x14
+ 1248 05c8 26       		.byte	0x26
+ 1249 05c9 0F       		.uleb128 0xf
+ 1250 05ca EF000000 		.4byte	.LASF36
+ 1251 05ce EF000000 		.4byte	.LASF36
+ 1252 05d2 15       		.byte	0x15
+ 1253 05d3 26       		.byte	0x26
+ 1254 05d4 00       		.byte	0
+ 1255              		.section	.debug_abbrev,"",%progbits
+ 1256              	.Ldebug_abbrev0:
+ 1257 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 29
+
+
+ 1258 0001 11       		.uleb128 0x11
+ 1259 0002 01       		.byte	0x1
+ 1260 0003 25       		.uleb128 0x25
+ 1261 0004 0E       		.uleb128 0xe
+ 1262 0005 13       		.uleb128 0x13
+ 1263 0006 0B       		.uleb128 0xb
+ 1264 0007 03       		.uleb128 0x3
+ 1265 0008 0E       		.uleb128 0xe
+ 1266 0009 1B       		.uleb128 0x1b
+ 1267 000a 0E       		.uleb128 0xe
+ 1268 000b 55       		.uleb128 0x55
+ 1269 000c 17       		.uleb128 0x17
+ 1270 000d 11       		.uleb128 0x11
+ 1271 000e 01       		.uleb128 0x1
+ 1272 000f 10       		.uleb128 0x10
+ 1273 0010 17       		.uleb128 0x17
+ 1274 0011 00       		.byte	0
+ 1275 0012 00       		.byte	0
+ 1276 0013 02       		.uleb128 0x2
+ 1277 0014 24       		.uleb128 0x24
+ 1278 0015 00       		.byte	0
+ 1279 0016 0B       		.uleb128 0xb
+ 1280 0017 0B       		.uleb128 0xb
+ 1281 0018 3E       		.uleb128 0x3e
+ 1282 0019 0B       		.uleb128 0xb
+ 1283 001a 03       		.uleb128 0x3
+ 1284 001b 0E       		.uleb128 0xe
+ 1285 001c 00       		.byte	0
+ 1286 001d 00       		.byte	0
+ 1287 001e 03       		.uleb128 0x3
+ 1288 001f 16       		.uleb128 0x16
+ 1289 0020 00       		.byte	0
+ 1290 0021 03       		.uleb128 0x3
+ 1291 0022 0E       		.uleb128 0xe
+ 1292 0023 3A       		.uleb128 0x3a
+ 1293 0024 0B       		.uleb128 0xb
+ 1294 0025 3B       		.uleb128 0x3b
+ 1295 0026 0B       		.uleb128 0xb
+ 1296 0027 49       		.uleb128 0x49
+ 1297 0028 13       		.uleb128 0x13
+ 1298 0029 00       		.byte	0
+ 1299 002a 00       		.byte	0
+ 1300 002b 04       		.uleb128 0x4
+ 1301 002c 24       		.uleb128 0x24
+ 1302 002d 00       		.byte	0
+ 1303 002e 0B       		.uleb128 0xb
+ 1304 002f 0B       		.uleb128 0xb
+ 1305 0030 3E       		.uleb128 0x3e
+ 1306 0031 0B       		.uleb128 0xb
+ 1307 0032 03       		.uleb128 0x3
+ 1308 0033 08       		.uleb128 0x8
+ 1309 0034 00       		.byte	0
+ 1310 0035 00       		.byte	0
+ 1311 0036 05       		.uleb128 0x5
+ 1312 0037 2E       		.uleb128 0x2e
+ 1313 0038 01       		.byte	0x1
+ 1314 0039 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 30
+
+
+ 1315 003a 19       		.uleb128 0x19
+ 1316 003b 03       		.uleb128 0x3
+ 1317 003c 0E       		.uleb128 0xe
+ 1318 003d 3A       		.uleb128 0x3a
+ 1319 003e 0B       		.uleb128 0xb
+ 1320 003f 3B       		.uleb128 0x3b
+ 1321 0040 0B       		.uleb128 0xb
+ 1322 0041 27       		.uleb128 0x27
+ 1323 0042 19       		.uleb128 0x19
+ 1324 0043 11       		.uleb128 0x11
+ 1325 0044 01       		.uleb128 0x1
+ 1326 0045 12       		.uleb128 0x12
+ 1327 0046 06       		.uleb128 0x6
+ 1328 0047 40       		.uleb128 0x40
+ 1329 0048 18       		.uleb128 0x18
+ 1330 0049 9742     		.uleb128 0x2117
+ 1331 004b 19       		.uleb128 0x19
+ 1332 004c 01       		.uleb128 0x1
+ 1333 004d 13       		.uleb128 0x13
+ 1334 004e 00       		.byte	0
+ 1335 004f 00       		.byte	0
+ 1336 0050 06       		.uleb128 0x6
+ 1337 0051 05       		.uleb128 0x5
+ 1338 0052 00       		.byte	0
+ 1339 0053 03       		.uleb128 0x3
+ 1340 0054 0E       		.uleb128 0xe
+ 1341 0055 3A       		.uleb128 0x3a
+ 1342 0056 0B       		.uleb128 0xb
+ 1343 0057 3B       		.uleb128 0x3b
+ 1344 0058 0B       		.uleb128 0xb
+ 1345 0059 49       		.uleb128 0x49
+ 1346 005a 13       		.uleb128 0x13
+ 1347 005b 02       		.uleb128 0x2
+ 1348 005c 17       		.uleb128 0x17
+ 1349 005d 00       		.byte	0
+ 1350 005e 00       		.byte	0
+ 1351 005f 07       		.uleb128 0x7
+ 1352 0060 898201   		.uleb128 0x4109
+ 1353 0063 01       		.byte	0x1
+ 1354 0064 11       		.uleb128 0x11
+ 1355 0065 01       		.uleb128 0x1
+ 1356 0066 31       		.uleb128 0x31
+ 1357 0067 13       		.uleb128 0x13
+ 1358 0068 01       		.uleb128 0x1
+ 1359 0069 13       		.uleb128 0x13
+ 1360 006a 00       		.byte	0
+ 1361 006b 00       		.byte	0
+ 1362 006c 08       		.uleb128 0x8
+ 1363 006d 8A8201   		.uleb128 0x410a
+ 1364 0070 00       		.byte	0
+ 1365 0071 02       		.uleb128 0x2
+ 1366 0072 18       		.uleb128 0x18
+ 1367 0073 9142     		.uleb128 0x2111
+ 1368 0075 18       		.uleb128 0x18
+ 1369 0076 00       		.byte	0
+ 1370 0077 00       		.byte	0
+ 1371 0078 09       		.uleb128 0x9
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 31
+
+
+ 1372 0079 898201   		.uleb128 0x4109
+ 1373 007c 01       		.byte	0x1
+ 1374 007d 11       		.uleb128 0x11
+ 1375 007e 01       		.uleb128 0x1
+ 1376 007f 31       		.uleb128 0x31
+ 1377 0080 13       		.uleb128 0x13
+ 1378 0081 00       		.byte	0
+ 1379 0082 00       		.byte	0
+ 1380 0083 0A       		.uleb128 0xa
+ 1381 0084 2E       		.uleb128 0x2e
+ 1382 0085 01       		.byte	0x1
+ 1383 0086 3F       		.uleb128 0x3f
+ 1384 0087 19       		.uleb128 0x19
+ 1385 0088 03       		.uleb128 0x3
+ 1386 0089 0E       		.uleb128 0xe
+ 1387 008a 3A       		.uleb128 0x3a
+ 1388 008b 0B       		.uleb128 0xb
+ 1389 008c 3B       		.uleb128 0x3b
+ 1390 008d 05       		.uleb128 0x5
+ 1391 008e 27       		.uleb128 0x27
+ 1392 008f 19       		.uleb128 0x19
+ 1393 0090 11       		.uleb128 0x11
+ 1394 0091 01       		.uleb128 0x1
+ 1395 0092 12       		.uleb128 0x12
+ 1396 0093 06       		.uleb128 0x6
+ 1397 0094 40       		.uleb128 0x40
+ 1398 0095 18       		.uleb128 0x18
+ 1399 0096 9742     		.uleb128 0x2117
+ 1400 0098 19       		.uleb128 0x19
+ 1401 0099 01       		.uleb128 0x1
+ 1402 009a 13       		.uleb128 0x13
+ 1403 009b 00       		.byte	0
+ 1404 009c 00       		.byte	0
+ 1405 009d 0B       		.uleb128 0xb
+ 1406 009e 05       		.uleb128 0x5
+ 1407 009f 00       		.byte	0
+ 1408 00a0 03       		.uleb128 0x3
+ 1409 00a1 0E       		.uleb128 0xe
+ 1410 00a2 3A       		.uleb128 0x3a
+ 1411 00a3 0B       		.uleb128 0xb
+ 1412 00a4 3B       		.uleb128 0x3b
+ 1413 00a5 05       		.uleb128 0x5
+ 1414 00a6 49       		.uleb128 0x49
+ 1415 00a7 13       		.uleb128 0x13
+ 1416 00a8 02       		.uleb128 0x2
+ 1417 00a9 17       		.uleb128 0x17
+ 1418 00aa 00       		.byte	0
+ 1419 00ab 00       		.byte	0
+ 1420 00ac 0C       		.uleb128 0xc
+ 1421 00ad 2E       		.uleb128 0x2e
+ 1422 00ae 01       		.byte	0x1
+ 1423 00af 3F       		.uleb128 0x3f
+ 1424 00b0 19       		.uleb128 0x19
+ 1425 00b1 03       		.uleb128 0x3
+ 1426 00b2 0E       		.uleb128 0xe
+ 1427 00b3 3A       		.uleb128 0x3a
+ 1428 00b4 0B       		.uleb128 0xb
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 32
+
+
+ 1429 00b5 3B       		.uleb128 0x3b
+ 1430 00b6 05       		.uleb128 0x5
+ 1431 00b7 11       		.uleb128 0x11
+ 1432 00b8 01       		.uleb128 0x1
+ 1433 00b9 12       		.uleb128 0x12
+ 1434 00ba 06       		.uleb128 0x6
+ 1435 00bb 40       		.uleb128 0x40
+ 1436 00bc 18       		.uleb128 0x18
+ 1437 00bd 9742     		.uleb128 0x2117
+ 1438 00bf 19       		.uleb128 0x19
+ 1439 00c0 01       		.uleb128 0x1
+ 1440 00c1 13       		.uleb128 0x13
+ 1441 00c2 00       		.byte	0
+ 1442 00c3 00       		.byte	0
+ 1443 00c4 0D       		.uleb128 0xd
+ 1444 00c5 34       		.uleb128 0x34
+ 1445 00c6 00       		.byte	0
+ 1446 00c7 03       		.uleb128 0x3
+ 1447 00c8 0E       		.uleb128 0xe
+ 1448 00c9 3A       		.uleb128 0x3a
+ 1449 00ca 0B       		.uleb128 0xb
+ 1450 00cb 3B       		.uleb128 0x3b
+ 1451 00cc 05       		.uleb128 0x5
+ 1452 00cd 49       		.uleb128 0x49
+ 1453 00ce 13       		.uleb128 0x13
+ 1454 00cf 3F       		.uleb128 0x3f
+ 1455 00d0 19       		.uleb128 0x19
+ 1456 00d1 3C       		.uleb128 0x3c
+ 1457 00d2 19       		.uleb128 0x19
+ 1458 00d3 00       		.byte	0
+ 1459 00d4 00       		.byte	0
+ 1460 00d5 0E       		.uleb128 0xe
+ 1461 00d6 35       		.uleb128 0x35
+ 1462 00d7 00       		.byte	0
+ 1463 00d8 49       		.uleb128 0x49
+ 1464 00d9 13       		.uleb128 0x13
+ 1465 00da 00       		.byte	0
+ 1466 00db 00       		.byte	0
+ 1467 00dc 0F       		.uleb128 0xf
+ 1468 00dd 2E       		.uleb128 0x2e
+ 1469 00de 00       		.byte	0
+ 1470 00df 3F       		.uleb128 0x3f
+ 1471 00e0 19       		.uleb128 0x19
+ 1472 00e1 3C       		.uleb128 0x3c
+ 1473 00e2 19       		.uleb128 0x19
+ 1474 00e3 6E       		.uleb128 0x6e
+ 1475 00e4 0E       		.uleb128 0xe
+ 1476 00e5 03       		.uleb128 0x3
+ 1477 00e6 0E       		.uleb128 0xe
+ 1478 00e7 3A       		.uleb128 0x3a
+ 1479 00e8 0B       		.uleb128 0xb
+ 1480 00e9 3B       		.uleb128 0x3b
+ 1481 00ea 0B       		.uleb128 0xb
+ 1482 00eb 00       		.byte	0
+ 1483 00ec 00       		.byte	0
+ 1484 00ed 00       		.byte	0
+ 1485              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 33
+
+
+ 1486              	.Ldebug_loc0:
+ 1487              	.LLST0:
+ 1488 0000 00000000 		.4byte	.LVL0
+ 1489 0004 04000000 		.4byte	.LVL1
+ 1490 0008 0100     		.2byte	0x1
+ 1491 000a 50       		.byte	0x50
+ 1492 000b 04000000 		.4byte	.LVL1
+ 1493 000f B6000000 		.4byte	.LFE64
+ 1494 0013 0400     		.2byte	0x4
+ 1495 0015 F3       		.byte	0xf3
+ 1496 0016 01       		.uleb128 0x1
+ 1497 0017 50       		.byte	0x50
+ 1498 0018 9F       		.byte	0x9f
+ 1499 0019 00000000 		.4byte	0
+ 1500 001d 00000000 		.4byte	0
+ 1501              	.LLST1:
+ 1502 0021 00000000 		.4byte	.LVL20
+ 1503 0025 04000000 		.4byte	.LVL21
+ 1504 0029 0100     		.2byte	0x1
+ 1505 002b 50       		.byte	0x50
+ 1506 002c 04000000 		.4byte	.LVL21
+ 1507 0030 B6000000 		.4byte	.LFE65
+ 1508 0034 0400     		.2byte	0x4
+ 1509 0036 F3       		.byte	0xf3
+ 1510 0037 01       		.uleb128 0x1
+ 1511 0038 50       		.byte	0x50
+ 1512 0039 9F       		.byte	0x9f
+ 1513 003a 00000000 		.4byte	0
+ 1514 003e 00000000 		.4byte	0
+ 1515              		.section	.debug_aranges,"",%progbits
+ 1516 0000 2C000000 		.4byte	0x2c
+ 1517 0004 0200     		.2byte	0x2
+ 1518 0006 00000000 		.4byte	.Ldebug_info0
+ 1519 000a 04       		.byte	0x4
+ 1520 000b 00       		.byte	0
+ 1521 000c 0000     		.2byte	0
+ 1522 000e 0000     		.2byte	0
+ 1523 0010 00000000 		.4byte	.LFB64
+ 1524 0014 B6000000 		.4byte	.LFE64-.LFB64
+ 1525 0018 00000000 		.4byte	.LFB65
+ 1526 001c B6000000 		.4byte	.LFE65-.LFB65
+ 1527 0020 00000000 		.4byte	.LFB66
+ 1528 0024 70000000 		.4byte	.LFE66-.LFB66
+ 1529 0028 00000000 		.4byte	0
+ 1530 002c 00000000 		.4byte	0
+ 1531              		.section	.debug_ranges,"",%progbits
+ 1532              	.Ldebug_ranges0:
+ 1533 0000 00000000 		.4byte	.LFB64
+ 1534 0004 B6000000 		.4byte	.LFE64
+ 1535 0008 00000000 		.4byte	.LFB65
+ 1536 000c B6000000 		.4byte	.LFE65
+ 1537 0010 00000000 		.4byte	.LFB66
+ 1538 0014 70000000 		.4byte	.LFE66
+ 1539 0018 00000000 		.4byte	0
+ 1540 001c 00000000 		.4byte	0
+ 1541              		.section	.debug_line,"",%progbits
+ 1542              	.Ldebug_line0:
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 34
+
+
+ 1543 0000 64030000 		.section	.debug_str,"MS",%progbits,1
+ 1543      0200D202 
+ 1543      00000201 
+ 1543      FB0E0D00 
+ 1543      01010101 
+ 1544              	.LASF17:
+ 1545 0000 73645F63 		.ascii	"sd_close_one_case\000"
+ 1545      6C6F7365 
+ 1545      5F6F6E65 
+ 1545      5F636173 
+ 1545      6500
+ 1546              	.LASF9:
+ 1547 0012 5F5F696E 		.ascii	"__int32_t\000"
+ 1547      7433325F 
+ 1547      7400
+ 1548              	.LASF29:
+ 1549 001c 53776974 		.ascii	"Switch_11_Control_Write\000"
+ 1549      63685F31 
+ 1549      315F436F 
+ 1549      6E74726F 
+ 1549      6C5F5772 
+ 1550              	.LASF3:
+ 1551 0034 73686F72 		.ascii	"short unsigned int\000"
+ 1551      7420756E 
+ 1551      7369676E 
+ 1551      65642069 
+ 1551      6E7400
+ 1552              	.LASF32:
+ 1553 0047 53776974 		.ascii	"Switch_14_Control_Write\000"
+ 1553      63685F31 
+ 1553      345F436F 
+ 1553      6E74726F 
+ 1553      6C5F5772 
+ 1554              	.LASF30:
+ 1555 005f 53776974 		.ascii	"Switch_12_Control_Write\000"
+ 1555      63685F31 
+ 1555      325F436F 
+ 1555      6E74726F 
+ 1555      6C5F5772 
+ 1556              	.LASF12:
+ 1557 0077 646F7562 		.ascii	"double\000"
+ 1557      6C6500
+ 1558              	.LASF28:
+ 1559 007e 53776974 		.ascii	"Switch_10_Control_Write\000"
+ 1559      63685F31 
+ 1559      305F436F 
+ 1559      6E74726F 
+ 1559      6C5F5772 
+ 1560              	.LASF35:
+ 1561 0096 53776974 		.ascii	"Switch_17_Control_Write\000"
+ 1561      63685F31 
+ 1561      375F436F 
+ 1561      6E74726F 
+ 1561      6C5F5772 
+ 1562              	.LASF40:
+ 1563 00ae 73645F6F 		.ascii	"sd_open_all_case\000"
+ 1563      70656E5F 
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 35
+
+
+ 1563      616C6C5F 
+ 1563      63617365 
+ 1563      00
+ 1564              	.LASF33:
+ 1565 00bf 53776974 		.ascii	"Switch_15_Control_Write\000"
+ 1565      63685F31 
+ 1565      355F436F 
+ 1565      6E74726F 
+ 1565      6C5F5772 
+ 1566              	.LASF31:
+ 1567 00d7 53776974 		.ascii	"Switch_13_Control_Write\000"
+ 1567      63685F31 
+ 1567      335F436F 
+ 1567      6E74726F 
+ 1567      6C5F5772 
+ 1568              	.LASF36:
+ 1569 00ef 53776974 		.ascii	"Switch_18_Control_Write\000"
+ 1569      63685F31 
+ 1569      385F436F 
+ 1569      6E74726F 
+ 1569      6C5F5772 
+ 1570              	.LASF11:
+ 1571 0107 666C6F61 		.ascii	"float\000"
+ 1571      7400
+ 1572              	.LASF24:
+ 1573 010d 53776974 		.ascii	"Switch_6_Control_Write\000"
+ 1573      63685F36 
+ 1573      5F436F6E 
+ 1573      74726F6C 
+ 1573      5F577269 
+ 1574              	.LASF22:
+ 1575 0124 53776974 		.ascii	"Switch_4_Control_Write\000"
+ 1575      63685F34 
+ 1575      5F436F6E 
+ 1575      74726F6C 
+ 1575      5F577269 
+ 1576              	.LASF1:
+ 1577 013b 756E7369 		.ascii	"unsigned char\000"
+ 1577      676E6564 
+ 1577      20636861 
+ 1577      7200
+ 1578              	.LASF37:
+ 1579 0149 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1579      43313120 
+ 1579      352E342E 
+ 1579      31203230 
+ 1579      31363036 
+ 1580 017c 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1580      20726576 
+ 1580      6973696F 
+ 1580      6E203233 
+ 1580      37373135 
+ 1581 01af 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1581      66756E63 
+ 1581      74696F6E 
+ 1581      2D736563 
+ 1581      74696F6E 
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 36
+
+
+ 1582              	.LASF27:
+ 1583 01d7 53776974 		.ascii	"Switch_9_Control_Write\000"
+ 1583      63685F39 
+ 1583      5F436F6E 
+ 1583      74726F6C 
+ 1583      5F577269 
+ 1584              	.LASF25:
+ 1585 01ee 53776974 		.ascii	"Switch_7_Control_Write\000"
+ 1585      63685F37 
+ 1585      5F436F6E 
+ 1585      74726F6C 
+ 1585      5F577269 
+ 1586              	.LASF23:
+ 1587 0205 53776974 		.ascii	"Switch_5_Control_Write\000"
+ 1587      63685F35 
+ 1587      5F436F6E 
+ 1587      74726F6C 
+ 1587      5F577269 
+ 1588              	.LASF21:
+ 1589 021c 53776974 		.ascii	"Switch_3_Control_Write\000"
+ 1589      63685F33 
+ 1589      5F436F6E 
+ 1589      74726F6C 
+ 1589      5F577269 
+ 1590              	.LASF19:
+ 1591 0233 53776974 		.ascii	"Switch_1_Control_Write\000"
+ 1591      63685F31 
+ 1591      5F436F6E 
+ 1591      74726F6C 
+ 1591      5F577269 
+ 1592              	.LASF26:
+ 1593 024a 53776974 		.ascii	"Switch_8_Control_Write\000"
+ 1593      63685F38 
+ 1593      5F436F6E 
+ 1593      74726F6C 
+ 1593      5F577269 
+ 1594              	.LASF41:
+ 1595 0261 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1595      52784275 
+ 1595      66666572 
+ 1595      00
+ 1596              	.LASF5:
+ 1597 026e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1597      20756E73 
+ 1597      69676E65 
+ 1597      6420696E 
+ 1597      7400
+ 1598              	.LASF38:
+ 1599 0280 73642E63 		.ascii	"sd.c\000"
+ 1599      00
+ 1600              	.LASF34:
+ 1601 0285 53776974 		.ascii	"Switch_16_Control_Write\000"
+ 1601      63685F31 
+ 1601      365F436F 
+ 1601      6E74726F 
+ 1601      6C5F5772 
+ 1602              	.LASF16:
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 37
+
+
+ 1603 029d 73645F6F 		.ascii	"sd_open_one_case\000"
+ 1603      70656E5F 
+ 1603      6F6E655F 
+ 1603      63617365 
+ 1603      00
+ 1604              	.LASF8:
+ 1605 02ae 756E7369 		.ascii	"unsigned int\000"
+ 1605      676E6564 
+ 1605      20696E74 
+ 1605      00
+ 1606              	.LASF7:
+ 1607 02bb 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1607      206C6F6E 
+ 1607      6720756E 
+ 1607      7369676E 
+ 1607      65642069 
+ 1608              	.LASF20:
+ 1609 02d2 53776974 		.ascii	"Switch_2_Control_Write\000"
+ 1609      63685F32 
+ 1609      5F436F6E 
+ 1609      74726F6C 
+ 1609      5F577269 
+ 1610              	.LASF10:
+ 1611 02e9 696E7433 		.ascii	"int32_t\000"
+ 1611      325F7400 
+ 1612              	.LASF15:
+ 1613 02f1 73697A65 		.ascii	"sizetype\000"
+ 1613      74797065 
+ 1613      00
+ 1614              	.LASF6:
+ 1615 02fa 6C6F6E67 		.ascii	"long long int\000"
+ 1615      206C6F6E 
+ 1615      6720696E 
+ 1615      7400
+ 1616              	.LASF13:
+ 1617 0308 63686172 		.ascii	"char\000"
+ 1617      00
+ 1618              	.LASF2:
+ 1619 030d 73686F72 		.ascii	"short int\000"
+ 1619      7420696E 
+ 1619      7400
+ 1620              	.LASF4:
+ 1621 0317 6C6F6E67 		.ascii	"long int\000"
+ 1621      20696E74 
+ 1621      00
+ 1622              	.LASF14:
+ 1623 0320 6C6F6E67 		.ascii	"long double\000"
+ 1623      20646F75 
+ 1623      626C6500 
+ 1624              	.LASF0:
+ 1625 032c 7369676E 		.ascii	"signed char\000"
+ 1625      65642063 
+ 1625      68617200 
+ 1626              	.LASF18:
+ 1627 0338 496E6465 		.ascii	"Index\000"
+ 1627      7800
+ 1628              	.LASF39:
+ARM GAS  C:\Users\DELL\AppData\Local\Temp\ccKNQBQ1.s 			page 38
+
+
+ 1629 033e 433A5C55 		.ascii	"C:\\Users\\DELL\\Desktop\\test\\test1.cydsn\000"
+ 1629      73657273 
+ 1629      5C44454C 
+ 1629      4C5C4465 
+ 1629      736B746F 
+ 1630              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

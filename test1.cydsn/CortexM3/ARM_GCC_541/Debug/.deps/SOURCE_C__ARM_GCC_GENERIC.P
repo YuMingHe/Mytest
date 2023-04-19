@@ -1,0 +1,130 @@
+C:/Users/DELL/Desktop/test/test1.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyDmac.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyFlash.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyLib.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CySpc.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/EEPROM.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_10_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_10_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_11_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_11_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_12_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_12_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_13_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_13_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_14_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_14_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_15_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_15_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_16_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_16_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_17_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_17_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_18_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_18_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_1_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_1_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_2_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_2_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_3_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_3_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_4_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_4_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_5_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_5_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_6_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_6_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_7_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_7_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_8_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_8_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_9_Control.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_9_Control_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/UART.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/UART_IntClock.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/ZeroGasOut.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/ZeroGasOut_aliases.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_armcc.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_compiler.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_gcc.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/core_cm3.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyPm.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydevice.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydevice_trm.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydisabledsheets.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyfitter.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cypins.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cytypes.h C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/project.h C:/Users/DELL/Desktop/test/test1.cydsn/main.c C:/Users/DELL/Desktop/test/test1.cydsn/main.h C:/Users/DELL/Desktop/test/test1.cydsn/protocol.h C:/Users/DELL/Desktop/test/test1.cydsn/sd.h 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/EEPROM.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_10_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_10_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_11_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_11_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_12_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_12_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_13_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_13_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_14_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_14_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_15_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_15_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_16_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_16_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_17_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_17_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_18_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_18_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_1_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_1_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_2_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_2_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_3_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_3_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_4_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_4_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_5_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_5_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_6_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_6_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_7_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_7_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_8_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_8_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_9_Control.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/Switch_9_Control_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/UART.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/UART_IntClock.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/ZeroGasOut.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/ZeroGasOut_aliases.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/Generated_Source/PSoC5/project.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/main.c : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/main.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/protocol.h : 
+
+C:/Users/DELL/Desktop/test/test1.cydsn/sd.h : 
+

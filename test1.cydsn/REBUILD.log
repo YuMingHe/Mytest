@@ -1,0 +1,11 @@
+--------------- Rebuild Started: 04/13/2023 09:14:57 Project: protocol.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/protocol.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c protocol.c -o .\CortexM3\ARM_GCC_541\Debug\protocol.o
+protocol.c:23:6: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+     {'1',   1},
+      ^
+protocol.c:23:6: note: (near initialization for 'protocol_cmd[0].cmd_str')
+protocol.c:24:6: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+     {'2',   2}
+      ^
+protocol.c:24:6: note: (near initialization for 'protocol_cmd[1].cmd_str')
+--------------- Rebuild Succeeded: 04/13/2023 09:14:58 ---------------

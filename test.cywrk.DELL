@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="test">
+<ExpandedNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\TopDesign</v>
+<v>test\test1\test1.cydwr</v>
+<v>test\test1\test1.cydwr\Pins</v>
+<v>test\test1\test1.cydwr\Analog</v>
+<v>test\test1\test1.cydwr\Clocks</v>
+<v>test\test1\test1.cydwr\Interrupts</v>
+<v>test\test1\test1.cydwr\DMA</v>
+<v>test\test1\test1.cydwr\System</v>
+<v>test\test1\test1.cydwr\Directives</v>
+<v>test\test1\test1.cydwr\Flash Security</v>
+<v>test\test1\test1.cydwr\EEPROM</v>
+<v>test\test1\Header Files</v>
+<v>test\test1\Header Files\cyapicallbacks.h</v>
+<v>test\test1\Header Files\DataProcess.h</v>
+<v>test\test1\Header Files\main.h</v>
+<v>test\test1\Header Files\protocol.h</v>
+<v>test\test1\Header Files\sd.h</v>
+<v>test\test1\Source Files</v>
+<v>test\test1\Source Files\DataProcess.c</v>
+<v>test\test1\Source Files\main.c</v>
+<v>test\test1\Source Files\protocol.c</v>
+<v>test\test1\Source Files\sd.c</v>
+<v>test\test1\Generated_Source</v>
+<v>test\test1\Generated_Source\PSoC5</v>
+<v>test\test1\Generated_Source\PSoC5\EEPROM</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\TopDesign</v>
+<v>test\test1\test1.cydwr</v>
+<v>test\test1\test1.cydwr\Pins</v>
+<v>test\test1\test1.cydwr\Analog</v>
+<v>test\test1\test1.cydwr\Clocks</v>
+<v>test\test1\test1.cydwr\Interrupts</v>
+<v>test\test1\test1.cydwr\DMA</v>
+<v>test\test1\test1.cydwr\System</v>
+<v>test\test1\test1.cydwr\Directives</v>
+<v>test\test1\test1.cydwr\Flash Security</v>
+<v>test\test1\test1.cydwr\EEPROM</v>
+<v>test\test1\Header Files</v>
+<v>test\test1\Header Files\cyapicallbacks.h</v>
+<v>test\test1\Header Files\DataProcess.h</v>
+<v>test\test1\Header Files\main.h</v>
+<v>test\test1\Header Files\protocol.h</v>
+<v>test\test1\Header Files\sd.h</v>
+<v>test\test1\Source Files</v>
+<v>test\test1\Source Files\DataProcess.c</v>
+<v>test\test1\Source Files\main.c</v>
+<v>test\test1\Source Files\protocol.c</v>
+<v>test\test1\Source Files\sd.c</v>
+<v>test\test1\Generated_Source</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\TopDesign</v>
+<v>test\test1\TopDesign\TopDesign.cysch</v>
+<v>test\test1\TopDesign\TopDesign_01.cymacro</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\TopDesign</v>
+<v>test\test1\TopDesign\TopDesign.cysch</v>
+<v>test\test1\TopDesign\TopDesign_01.cymacro</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\CortexM3</v>
+<v>test\test1\CortexM3\ARM_GCC_541</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\DataProcess.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\EEPROM.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\protocol.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\sd.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_1_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_10_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_11_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_12_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_13_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_14_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_15_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_16_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_17_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_18_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_2_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_3_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_4_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_5_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_6_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_7_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_8_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_9_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\ZeroGasOut.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\test1.elf</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\test1.hex</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\test1.map</v>
+<v>test\test1\test1.gpdsc</v>
+<v>test\test1\test1.rpt</v>
+<v>test\test1\test1_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\CortexM3</v>
+<v>test\test1\CortexM3\ARM_GCC_541</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\DataProcess.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\EEPROM.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\protocol.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\sd.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_1_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_10_Control.lst</v>
+<v>test\test1\CortexM3\ARM_GCC_541\Debug\Listing Files\Switch_11_Control.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\PSoC 5LP Architecture TRM</v>
+<v>test\test1\CY8C58LP Family Datasheet</v>
+<v>test\test1\System Reference Guides</v>
+<v>test\test1\System Reference Guides\cy_boot_v6_0</v>
+<v>test\test1\cy_constant_v1_0.pdf</v>
+<v>test\test1\cy_pins_v2_20</v>
+<v>test\test1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>test\test1\EEPROM_v3_0.pdf</v>
+<v>test\test1\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>test</v>
+<v>test\test1</v>
+<v>test\test1\PSoC 5LP Architecture TRM</v>
+<v>test\test1\CY8C58LP Family Datasheet</v>
+<v>test\test1\System Reference Guides</v>
+<v>test\test1\System Reference Guides\cy_boot_v6_0</v>
+<v>test\test1\cy_constant_v1_0.pdf</v>
+<v>test\test1\cy_pins_v2_20</v>
+<v>test\test1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>test\test1\EEPROM_v3_0.pdf</v>
+<v>test\test1\UART_v2_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\test1.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\test1.cydsn\test1.cydwr" />
+<name v=".\test1.cydsn\sd.c" />
+<name v=".\test1.cydsn\main.c" />
+<name v=".\test1.cydsn\sd.h" />
+<name v=".\test1.cydsn\main.h" />
+<name v=".\test1.cydsn\protocol.h" />
+<name v=".\test1.cydsn\protocol.c" />
+<name v=".\test1.cydsn\Generated_Source\PSoC5\UART.c" />
+<name v=".\test1.cydsn\DataProcess.c" />
+<name v=".\test1.cydsn\Generated_Source\PSoC5\EEPROM.h" />
+<name v=".\test1.cydsn\Generated_Source\PSoC5\EEPROM.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1270, 500" SelectedTabbedMdiWindow="d658d0c1-50a6-4347-b971-6cd23b480ff3"><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\TopDesign\TopDesign.cysch" Guid="401c9922-70fe-4c59-a777-e09816e64947" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\test1.cydwr" Guid="6c41e145-5509-4cf0-8559-f0db1a92dcf7" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\sd.c" Guid="2bfbfd0e-bc52-4dd2-8807-b3ec9d6d5f29" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\main.c" Guid="d658d0c1-50a6-4347-b971-6cd23b480ff3" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\sd.h" Guid="53c6ed16-e597-49d2-8aa4-103f41e8a3f3" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\main.h" Guid="23fe1257-7442-4ea7-8af2-262880c29e32" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\protocol.h" Guid="9bd9c1ad-60b1-4e9a-adf4-8773573d66aa" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\protocol.c" Guid="ee061558-cf89-42b1-8f34-fe2d8b459710" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\Generated_Source\PSoC5\UART.c" Guid="19dc4379-07f0-4c3c-aed2-e9dff437541d" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\DataProcess.c" Guid="68d08ac1-f670-4ead-98b5-01401a1f9fcc" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\Generated_Source\PSoC5\EEPROM.h" Guid="d8ed1570-01ac-4653-bbe4-9ca8e0f61c2d" /><DocumentWindow Key="C:\Users\DELL\Desktop\test\test1.cydsn\Generated_Source\PSoC5\EEPROM.c" Guid="cf9096db-cf01-4c12-921e-2d76c9546222" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="98564d22-0e91-4950-95d9-7046fe022363" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
